@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ArrowRight, Zap } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 const NAV_LINKS = [
   { name: 'Home', href: '/' },
@@ -21,7 +21,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -38,16 +38,14 @@ export default function Navbar() {
         zIndex: 100,
         display: 'flex',
         alignItems: 'center',
-        transition: 'all 0.3s ease',
+        transition: 'all 0.2s ease',
         background: isScrolled
-          ? 'rgba(7, 9, 14, 0.85)'
-          : 'rgba(7, 9, 14, 0.5)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        borderBottom: isScrolled
-          ? '1px solid rgba(255, 255, 255, 0.08)'
-          : '1px solid transparent',
-        boxShadow: isScrolled ? '0 10px 30px rgba(0, 0, 0, 0.5)' : 'none',
+          ? 'rgba(255, 255, 255, 0.95)'
+          : 'rgba(255, 255, 255, 0.85)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        borderBottom: '1px solid var(--border-subtle)',
+        boxShadow: isScrolled ? 'var(--shadow-sm)' : 'none',
       }}
     >
       <div
@@ -70,22 +68,22 @@ export default function Navbar() {
         >
           <div
             style={{
-              width: '42px',
-              height: '42px',
-              borderRadius: '12px',
-              background: 'linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #8a2be2 100%)',
+              width: '38px',
+              height: '38px',
+              borderRadius: '8px',
+              background: '#2563eb',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 0 20px rgba(0, 242, 254, 0.5)',
+              boxShadow: '0 2px 4px rgba(37, 99, 235, 0.2)',
             }}
           >
             <span
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 800,
-                fontSize: '1.35rem',
-                color: '#07090e',
+                fontSize: '1.25rem',
+                color: '#ffffff',
               }}
             >
               Z
@@ -96,9 +94,9 @@ export default function Navbar() {
               style={{
                 fontFamily: 'var(--font-display)',
                 fontWeight: 800,
-                fontSize: '1.25rem',
+                fontSize: '1.2rem',
                 letterSpacing: '-0.02em',
-                color: '#ffffff',
+                color: '#0f172a',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
@@ -107,13 +105,13 @@ export default function Navbar() {
               ZYNTHAX
               <span
                 style={{
-                  fontSize: '0.65rem',
-                  padding: '2px 6px',
-                  borderRadius: '6px',
-                  background: 'rgba(0, 242, 254, 0.15)',
-                  color: 'var(--accent-cyan)',
-                  border: '1px solid rgba(0, 242, 254, 0.3)',
-                  fontWeight: 700,
+                  fontSize: '0.7rem',
+                  padding: '1px 6px',
+                  borderRadius: '4px',
+                  background: '#eff6ff',
+                  color: '#2563eb',
+                  border: '1px solid #bfdbfe',
+                  fontWeight: 600,
                   textTransform: 'uppercase',
                 }}
               >
@@ -122,9 +120,9 @@ export default function Navbar() {
             </div>
             <div
               style={{
-                fontSize: '0.7rem',
+                fontSize: '0.675rem',
                 color: 'var(--text-muted)',
-                letterSpacing: '0.08em',
+                letterSpacing: '0.04em',
                 textTransform: 'uppercase',
                 marginTop: '-2px',
               }}
@@ -139,7 +137,7 @@ export default function Navbar() {
           style={{
             display: 'none',
             alignItems: 'center',
-            gap: '8px',
+            gap: '4px',
           }}
           className="desktop-nav"
         >
@@ -151,16 +149,13 @@ export default function Navbar() {
                 href={link.href}
                 style={{
                   padding: '8px 16px',
-                  borderRadius: '999px',
+                  borderRadius: '6px',
                   textDecoration: 'none',
                   fontSize: '0.925rem',
-                  fontWeight: isActive ? 700 : 500,
-                  color: isActive ? '#00f2fe' : '#94a3b8',
-                  background: isActive ? 'rgba(0, 242, 254, 0.08)' : 'transparent',
-                  border: isActive
-                    ? '1px solid rgba(0, 242, 254, 0.25)'
-                    : '1px solid transparent',
-                  transition: 'all 0.2s ease',
+                  fontWeight: isActive ? 600 : 500,
+                  color: isActive ? '#2563eb' : '#475569',
+                  background: isActive ? '#eff6ff' : 'transparent',
+                  transition: 'all 0.15s ease',
                 }}
               >
                 {link.name}
@@ -169,12 +164,12 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Action Button & Contact Link */}
+        {/* Action Button */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '16px',
+            gap: '14px',
           }}
         >
           <Link
@@ -183,8 +178,8 @@ export default function Navbar() {
             style={{ display: 'none' }}
             id="nav-cta-btn"
           >
-            <span>Start Project</span>
-            <ArrowRight size={15} />
+            <span>Start a Project</span>
+            <ArrowRight size={14} />
           </Link>
 
           {/* Mobile Menu Trigger */}
@@ -194,17 +189,17 @@ export default function Navbar() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'rgba(255, 255, 255, 0.05)',
+              background: '#ffffff',
               border: '1px solid var(--border-subtle)',
-              borderRadius: '10px',
-              padding: '10px',
-              color: '#ffffff',
+              borderRadius: '8px',
+              padding: '8px',
+              color: '#334155',
               cursor: 'pointer',
             }}
             className="mobile-toggle"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
@@ -217,14 +212,13 @@ export default function Navbar() {
             top: 'var(--header-height)',
             left: 0,
             right: 0,
-            background: 'rgba(7, 9, 14, 0.98)',
-            backdropFilter: 'blur(24px)',
+            background: '#ffffff',
             borderBottom: '1px solid var(--border-subtle)',
-            padding: '24px',
+            padding: '20px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '12px',
-            boxShadow: '0 20px 40px rgba(0,0,0,0.8)',
+            gap: '8px',
+            boxShadow: 'var(--shadow-lg)',
           }}
         >
           {NAV_LINKS.map((link) => {
@@ -235,16 +229,13 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
-                  padding: '12px 18px',
-                  borderRadius: '10px',
+                  padding: '10px 14px',
+                  borderRadius: '6px',
                   textDecoration: 'none',
-                  fontSize: '1.05rem',
-                  fontWeight: isActive ? 700 : 500,
-                  color: isActive ? '#00f2fe' : '#e2e8f0',
-                  background: isActive ? 'rgba(0, 242, 254, 0.1)' : 'rgba(255, 255, 255, 0.02)',
-                  border: isActive
-                    ? '1px solid rgba(0, 242, 254, 0.3)'
-                    : '1px solid transparent',
+                  fontSize: '1rem',
+                  fontWeight: isActive ? 600 : 500,
+                  color: isActive ? '#2563eb' : '#334155',
+                  background: isActive ? '#eff6ff' : 'transparent',
                 }}
               >
                 {link.name}
@@ -256,10 +247,10 @@ export default function Navbar() {
             href="/contact"
             onClick={() => setMobileMenuOpen(false)}
             className="btn-primary"
-            style={{ marginTop: '12px', width: '100%' }}
+            style={{ marginTop: '10px', width: '100%' }}
           >
             <span>Start a Project</span>
-            <ArrowRight size={18} />
+            <ArrowRight size={16} />
           </Link>
         </div>
       )}

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { isFirebaseConfigured } from '@/lib/firebase';
 import { seedFirestoreDatabase } from '@/lib/seedData';
-import { Database, Cloud, RefreshCw, CheckCircle2, AlertTriangle, Shield } from 'lucide-react';
+import { Database, RefreshCw } from 'lucide-react';
 
 export default function DatabaseStatusBadge() {
   const [seeding, setSeeding] = useState(false);
@@ -25,63 +25,61 @@ export default function DatabaseStatusBadge() {
 
   return (
     <aside
-      aria-label="Real-time data synchronization and media status"
+      aria-label="Real-time data synchronization status"
       style={{
         position: 'fixed',
-        bottom: '24px',
-        left: '24px',
+        bottom: '20px',
+        left: '20px',
         zIndex: 90,
       }}
     >
-      {/* Trigger Pill */}
+      {/* Trigger Button */}
       <button
         onClick={() => setShowDetails(!showDetails)}
         style={{
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
-          padding: '8px 16px',
+          padding: '6px 14px',
           borderRadius: '999px',
-          background: 'rgba(7, 10, 16, 0.88)',
-          backdropFilter: 'blur(16px)',
-          border: '1px solid rgba(0, 242, 254, 0.3)',
-          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.6)',
+          background: '#ffffff',
+          border: '1px solid #cbd5e1',
+          boxShadow: 'var(--shadow-md)',
           cursor: 'pointer',
-          color: '#fff',
-          fontSize: '0.8rem',
+          color: '#334155',
+          fontSize: '0.775rem',
           fontWeight: 600,
-          transition: 'all 0.2s ease',
+          transition: 'all 0.15s ease',
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--accent-cyan)')}
-        onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(0, 242, 254, 0.3)')}
-        title="View Backend Sync Status"
+        onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#2563eb')}
+        onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#cbd5e1')}
+        title="View Backend Status"
       >
         <span
           style={{
-            width: '8px',
-            height: '8px',
+            width: '7px',
+            height: '7px',
             borderRadius: '50%',
-            background: isFirebaseConfigured ? '#10b981' : '#00f2fe',
-            boxShadow: `0 0 10px ${isFirebaseConfigured ? '#10b981' : '#00f2fe'}`,
+            background: isFirebaseConfigured ? '#10b981' : '#2563eb',
           }}
         />
-        <span>{isFirebaseConfigured ? 'Firestore: Connected' : 'Firestore: Ready / Demo'}</span>
+        <span>{isFirebaseConfigured ? 'Firestore: Live' : 'Firestore: Ready (Demo)'}</span>
       </button>
 
       {/* Popover Card */}
       {showDetails && (
         <div
-          className="glass-panel"
+          className="card-panel"
           style={{
             position: 'absolute',
-            bottom: '48px',
+            bottom: '44px',
             left: '0',
-            width: '320px',
-            padding: '20px',
-            borderRadius: '16px',
-            border: '1px solid rgba(0, 242, 254, 0.4)',
-            boxShadow: '0 20px 50px rgba(0,0,0,0.8)',
-            backgroundColor: '#0a0e18',
+            width: '300px',
+            padding: '18px',
+            borderRadius: '12px',
+            background: '#ffffff',
+            border: '1px solid #cbd5e1',
+            boxShadow: 'var(--shadow-xl)',
           }}
         >
           <div
@@ -89,11 +87,11 @@ export default function DatabaseStatusBadge() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              marginBottom: '14px',
+              marginBottom: '12px',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 700, fontSize: '0.95rem' }}>
-              <Database size={16} color="var(--accent-cyan)" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700, fontSize: '0.9rem', color: '#0f172a' }}>
+              <Database size={15} color="#2563eb" />
               <span>Backend Architecture</span>
             </div>
             <button
@@ -101,44 +99,40 @@ export default function DatabaseStatusBadge() {
               style={{
                 background: 'transparent',
                 border: 'none',
-                color: 'var(--text-muted)',
+                color: '#64748b',
                 cursor: 'pointer',
-                fontSize: '1.1rem',
+                fontSize: '1rem',
               }}
             >
               &times;
             </button>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.825rem', color: '#cbd5e1' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.8rem', color: '#475569' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span>Database Engine:</span>
-              <strong style={{ color: 'var(--accent-cyan)' }}>Firebase Firestore</strong>
+              <span>Database:</span>
+              <strong style={{ color: '#0f172a' }}>Firebase Firestore</strong>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span>Sync Listener:</span>
               <strong style={{ color: '#10b981' }}>onSnapshot (Active)</strong>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span>Media CDN:</span>
-              <strong style={{ color: 'var(--accent-blue)' }}>Cloudinary (f_auto,q_auto)</strong>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span>Security Rules:</span>
-              <strong style={{ color: '#a855f7' }}>Configured</strong>
+              <span>Media Delivery:</span>
+              <strong style={{ color: '#2563eb' }}>Cloudinary (f_auto,q_auto)</strong>
             </div>
           </div>
 
           {result && (
             <div
               style={{
-                marginTop: '12px',
-                padding: '10px',
-                borderRadius: '8px',
-                background: 'rgba(0, 242, 254, 0.1)',
-                border: '1px solid rgba(0, 242, 254, 0.3)',
-                fontSize: '0.78rem',
-                color: '#e2e8f0',
+                marginTop: '10px',
+                padding: '8px 12px',
+                borderRadius: '6px',
+                background: '#eff6ff',
+                border: '1px solid #bfdbfe',
+                fontSize: '0.75rem',
+                color: '#1e40af',
               }}
             >
               {result}
@@ -149,22 +143,22 @@ export default function DatabaseStatusBadge() {
             <button
               onClick={handleSeed}
               disabled={seeding}
-              className="btn-secondary btn-sm"
+              className="btn-primary btn-sm"
               style={{
                 width: '100%',
-                marginTop: '14px',
+                marginTop: '12px',
                 justifyContent: 'center',
-                fontSize: '0.8rem',
+                fontSize: '0.775rem',
               }}
             >
-              <RefreshCw size={13} className={seeding ? 'animate-spin' : ''} />
-              <span>{seeding ? 'Seeding Firestore...' : '1-Click Seed Collections'}</span>
+              <RefreshCw size={12} className={seeding ? 'animate-spin' : ''} />
+              <span>{seeding ? 'Seeding...' : 'Seed Collections to Firestore'}</span>
             </button>
           )}
 
           {!isFirebaseConfigured && (
-            <p style={{ marginTop: '12px', fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: 1.4 }}>
-              To connect your live Firebase project, add your keys to <code style={{ color: 'var(--accent-cyan)' }}>.env.local</code>. Seed data is currently serving the UI in demo mode.
+            <p style={{ marginTop: '10px', fontSize: '0.725rem', color: '#64748b', lineHeight: 1.4 }}>
+              Serving verified startup data. Add keys to <code>.env.local</code> to link your live Firestore project.
             </p>
           )}
         </div>

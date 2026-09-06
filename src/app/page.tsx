@@ -16,7 +16,6 @@ import { PortfolioItem } from '@/types';
 import {
   ArrowRight,
   Sparkles,
-  Zap,
   Globe,
   Layout,
   Smartphone,
@@ -24,23 +23,22 @@ import {
   Image as ImageIcon,
   Film,
   PlayCircle,
-  ShieldCheck,
   Star,
-  CheckCircle,
-  ExternalLink,
+  CheckCircle2,
+  ShieldCheck,
+  Zap,
   Users,
 } from 'lucide-react';
 
-// Icon mapper for services
 const ICON_MAP: Record<string, React.ReactNode> = {
-  Search: <Search size={24} color="#00f2fe" />,
-  Globe: <Globe size={24} color="#4facfe" />,
-  Layout: <Layout size={24} color="#a855f7" />,
-  Image: <ImageIcon size={24} color="#ec4899" />,
-  Sparkles: <Sparkles size={24} color="#8b5cf6" />,
-  PlayCircle: <PlayCircle size={24} color="#f43f5e" />,
-  Film: <Film size={24} color="#e11d48" />,
-  Smartphone: <Smartphone size={24} color="#10b981" />,
+  Search: <Search size={22} color="#2563eb" />,
+  Globe: <Globe size={22} color="#2563eb" />,
+  Layout: <Layout size={22} color="#2563eb" />,
+  Image: <ImageIcon size={22} color="#2563eb" />,
+  Sparkles: <Sparkles size={22} color="#2563eb" />,
+  PlayCircle: <PlayCircle size={22} color="#2563eb" />,
+  Film: <Film size={22} color="#2563eb" />,
+  Smartphone: <Smartphone size={22} color="#2563eb" />,
 };
 
 export default function HomePage() {
@@ -59,16 +57,16 @@ export default function HomePage() {
       {/* 1. HERO SECTION */}
       <section
         style={{
-          position: 'relative',
-          paddingTop: '60px',
-          paddingBottom: '100px',
-          overflow: 'hidden',
+          paddingTop: '64px',
+          paddingBottom: '80px',
+          background: 'linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)',
+          borderBottom: '1px solid var(--border-subtle)',
         }}
       >
         <div className="container">
           <div
             style={{
-              maxWidth: '880px',
+              maxWidth: '840px',
               margin: '0 auto',
               textAlign: 'center',
               display: 'flex',
@@ -79,30 +77,30 @@ export default function HomePage() {
             {/* Tag Badge */}
             <div className="badge">
               <span className="badge-dot" />
-              <span>Digital Services Startup &bull; Real-time Cloud Sync</span>
+              <span>Digital Services Agency &bull; Web &bull; Apps &bull; Media</span>
             </div>
 
-            {/* Main Headline */}
+            {/* Headline */}
             <h1
               style={{
-                fontSize: 'clamp(2.5rem, 5vw, 4.25rem)',
+                fontSize: 'clamp(2.3rem, 4.5vw, 3.8rem)',
                 fontWeight: 800,
-                letterSpacing: '-0.03em',
-                lineHeight: 1.1,
-                marginBottom: '24px',
+                color: '#0f172a',
+                lineHeight: 1.15,
+                marginBottom: '20px',
               }}
             >
-              We Build <span className="text-gradient">High-Impact</span> Websites, Custom Apps & Iconic Branding.
+              We Build High-Performance <span className="text-gradient">Websites</span>, Custom Software & Dynamic Brands.
             </h1>
 
             {/* Subtitle */}
             <p
               style={{
-                fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+                fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
                 lineHeight: 1.65,
-                color: 'var(--text-secondary)',
-                marginBottom: '36px',
-                maxWidth: '720px',
+                color: '#475569',
+                marginBottom: '32px',
+                maxWidth: '680px',
               }}
             >
               {content.heroSubtitle}
@@ -113,32 +111,32 @@ export default function HomePage() {
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
-                gap: '16px',
+                gap: '12px',
                 justifyContent: 'center',
-                marginBottom: '60px',
+                marginBottom: '56px',
               }}
             >
               <Link href="/contact" className="btn-primary">
                 <span>Start Your Project</span>
-                <ArrowRight size={18} />
+                <ArrowRight size={16} />
               </Link>
               <Link href="/portfolio" className="btn-secondary">
                 <span>Explore Our Work</span>
               </Link>
             </div>
 
-            {/* Key Metrics / Stats */}
+            {/* Stats Metrics Grid */}
             <div
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-                gap: '20px',
+                gap: '16px',
                 width: '100%',
                 padding: '24px',
-                borderRadius: '16px',
-                background: 'rgba(16, 22, 36, 0.5)',
-                backdropFilter: 'blur(12px)',
+                borderRadius: '12px',
+                background: '#ffffff',
                 border: '1px solid var(--border-subtle)',
+                boxShadow: 'var(--shadow-sm)',
               }}
             >
               {(content.stats || []).map((stat, idx) => (
@@ -146,19 +144,21 @@ export default function HomePage() {
                   <div
                     style={{
                       fontFamily: 'var(--font-display)',
-                      fontSize: '2rem',
+                      fontSize: '1.85rem',
                       fontWeight: 800,
-                      color: '#00f2fe',
+                      color: '#2563eb',
                     }}
                   >
                     {stat.value}
                   </div>
                   <div
                     style={{
-                      fontSize: '0.8rem',
-                      color: 'var(--text-secondary)',
+                      fontSize: '0.775rem',
+                      color: '#64748b',
+                      fontWeight: 600,
                       textTransform: 'uppercase',
                       letterSpacing: '0.04em',
+                      marginTop: '2px',
                     }}
                   >
                     {stat.label}
@@ -170,18 +170,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. SERVICES OVERVIEW SECTION */}
-      <section style={{ padding: '80px 0', position: 'relative' }}>
+      {/* 2. SERVICES OVERVIEW */}
+      <section style={{ padding: '80px 0' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 56px' }}>
+          <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 48px' }}>
             <div className="badge">
               <span>What We Do</span>
             </div>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '16px' }}>
-              Full-Spectrum <span className="text-gradient">Digital Services</span>
+            <h2 style={{ fontSize: '2.3rem', color: '#0f172a', marginBottom: '12px' }}>
+              Full-Spectrum Digital Services
             </h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem' }}>
-              From search engine domination and custom retail software to hypnotic 3D animations and full-stack web builds.
+            <p style={{ color: '#64748b', fontSize: '1rem', lineHeight: 1.6 }}>
+              Comprehensive technical and creative solutions designed to help your business operate efficiently and scale rapidly.
             </p>
           </div>
 
@@ -189,35 +189,35 @@ export default function HomePage() {
             {servicesData.map((service) => (
               <div
                 key={service.id}
-                className="glass-panel"
+                className="card-panel"
                 style={{
-                  padding: '28px',
+                  padding: '24px',
                   display: 'flex',
                   flexDirection: 'column',
+                  background: '#ffffff',
                 }}
               >
                 <div
                   style={{
-                    width: '48px',
-                    height: '48px',
-                    borderRadius: '12px',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid var(--border-subtle)',
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '8px',
+                    background: '#eff6ff',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: '20px',
+                    marginBottom: '16px',
                   }}
                 >
-                  {ICON_MAP[service.iconName] || <Zap size={24} color="#00f2fe" />}
+                  {ICON_MAP[service.iconName] || <Globe size={22} color="#2563eb" />}
                 </div>
 
                 <h3
                   style={{
-                    fontSize: '1.25rem',
+                    fontSize: '1.15rem',
                     fontWeight: 700,
-                    marginBottom: '10px',
-                    color: '#fff',
+                    marginBottom: '8px',
+                    color: '#0f172a',
                   }}
                 >
                   {service.title}
@@ -225,10 +225,10 @@ export default function HomePage() {
 
                 <p
                   style={{
-                    color: 'var(--text-secondary)',
-                    fontSize: '0.9rem',
-                    lineHeight: 1.6,
-                    marginBottom: '20px',
+                    color: '#475569',
+                    fontSize: '0.875rem',
+                    lineHeight: 1.55,
+                    marginBottom: '18px',
                     flexGrow: 1,
                   }}
                 >
@@ -241,37 +241,36 @@ export default function HomePage() {
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '6px',
-                    color: 'var(--accent-cyan)',
+                    color: '#2563eb',
                     textDecoration: 'none',
-                    fontSize: '0.875rem',
+                    fontSize: '0.85rem',
                     fontWeight: 600,
                     marginTop: 'auto',
                   }}
                 >
                   <span>Learn more</span>
-                  <ArrowRight size={14} />
+                  <ArrowRight size={13} />
                 </Link>
               </div>
             ))}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '40px' }}>
+          <div style={{ textAlign: 'center', marginTop: '36px' }}>
             <Link href="/services" className="btn-secondary">
-              <span>View All 8 Specialized Services</span>
-              <ArrowRight size={16} />
+              <span>View All 8 Services in Detail</span>
+              <ArrowRight size={14} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* 3. FEATURED PORTFOLIO SECTION (Dynamic from Firestore) */}
+      {/* 3. FEATURED WORK (Dynamic from Firestore) */}
       <section
         style={{
-          padding: '90px 0',
-          background: 'rgba(11, 15, 25, 0.6)',
+          padding: '80px 0',
+          background: '#f8fafc',
           borderTop: '1px solid var(--border-subtle)',
           borderBottom: '1px solid var(--border-subtle)',
-          position: 'relative',
         }}
       >
         <div className="container">
@@ -281,31 +280,31 @@ export default function HomePage() {
               flexWrap: 'wrap',
               justifyContent: 'space-between',
               alignItems: 'flex-end',
-              gap: '20px',
-              marginBottom: '48px',
+              gap: '16px',
+              marginBottom: '40px',
             }}
           >
             <div>
               <div className="badge">
-                <span>Dynamic Case Studies</span>
+                <span>Case Studies</span>
               </div>
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '8px' }}>
-                Featured <span className="text-gradient">Work & Prototypes</span>
+              <h2 style={{ fontSize: '2.3rem', color: '#0f172a', marginBottom: '6px' }}>
+                Featured Projects & Systems
               </h2>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>
-                Synced directly from Firebase Firestore with Cloudinary auto-optimization.
+              <p style={{ color: '#64748b', fontSize: '0.975rem' }}>
+                Recent client deliverables across web development, retail billing apps, and creative media.
               </p>
             </div>
 
             <Link href="/portfolio" className="btn-secondary btn-sm">
-              <span>Explore All Projects</span>
-              <ArrowRight size={15} />
+              <span>View Full Portfolio</span>
+              <ArrowRight size={14} />
             </Link>
           </div>
 
           {portfolioLoading ? (
-            <div style={{ textAlign: 'center', padding: '60px', color: 'var(--text-muted)' }}>
-              Loading dynamic portfolio from Firestore...
+            <div style={{ textAlign: 'center', padding: '60px', color: '#64748b' }}>
+              Loading portfolio from database...
             </div>
           ) : (
             <div className="grid-3">
@@ -315,7 +314,7 @@ export default function HomePage() {
                   <PortfolioCard
                     key={item.id}
                     item={item}
-                    categoryName={category?.name || 'Showcase'}
+                    categoryName={category?.name || 'Project'}
                     onOpenModal={(item) => setSelectedPortfolio(item)}
                   />
                 );
@@ -326,17 +325,17 @@ export default function HomePage() {
       </section>
 
       {/* 4. CLIENT TESTIMONIALS */}
-      <section style={{ padding: '90px 0', position: 'relative' }}>
+      <section style={{ padding: '80px 0' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 56px' }}>
+          <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 48px' }}>
             <div className="badge">
-              <span>Client Endorsements</span>
+              <span>Client Reviews</span>
             </div>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '16px' }}>
-              Trusted by <span className="text-gradient">Ambitious Founders</span>
+            <h2 style={{ fontSize: '2.3rem', color: '#0f172a', marginBottom: '12px' }}>
+              Trusted by Growing Businesses
             </h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem' }}>
-              Real feedback from clients who accelerated their businesses with Zynthax Digital Solutions.
+            <p style={{ color: '#64748b', fontSize: '1rem', lineHeight: 1.6 }}>
+              Direct feedback from founders and managers who partner with Zynthax Digital Solutions.
             </p>
           </div>
 
@@ -344,53 +343,53 @@ export default function HomePage() {
             {content.testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="glass-panel"
+                className="card-panel"
                 style={{
-                  padding: '32px',
+                  padding: '28px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
+                  background: '#ffffff',
                 }}
               >
                 <div>
-                  <div style={{ display: 'flex', gap: '4px', marginBottom: '16px' }}>
+                  <div style={{ display: 'flex', gap: '4px', marginBottom: '14px' }}>
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} size={16} fill="#00f2fe" color="#00f2fe" />
+                      <Star key={i} size={15} fill="#eab308" color="#eab308" />
                     ))}
                   </div>
 
                   <p
                     style={{
-                      color: '#e2e8f0',
-                      fontSize: '0.975rem',
+                      color: '#334155',
+                      fontSize: '0.925rem',
                       lineHeight: 1.65,
-                      marginBottom: '24px',
-                      fontStyle: 'italic',
+                      marginBottom: '20px',
                     }}
                   >
                     “{testimonial.content}”
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', borderTop: '1px solid var(--border-subtle)', paddingTop: '16px' }}>
                   {testimonial.avatarUrl && (
                     <img
                       src={testimonial.avatarUrl}
                       alt={testimonial.name}
                       style={{
-                        width: '46px',
-                        height: '46px',
+                        width: '42px',
+                        height: '42px',
                         borderRadius: '50%',
                         objectFit: 'cover',
-                        border: '2px solid rgba(0, 242, 254, 0.4)',
+                        border: '1px solid #cbd5e1',
                       }}
                     />
                   )}
                   <div>
-                    <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#ffffff' }}>
+                    <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#0f172a' }}>
                       {testimonial.name}
                     </div>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                    <div style={{ fontSize: '0.775rem', color: '#64748b' }}>
                       {testimonial.role}, {testimonial.company}
                     </div>
                   </div>
@@ -405,9 +404,8 @@ export default function HomePage() {
       <section
         style={{
           padding: '80px 0',
-          background: 'rgba(7, 10, 16, 0.4)',
+          background: '#f8fafc',
           borderTop: '1px solid var(--border-subtle)',
-          position: 'relative',
         }}
       >
         <div className="container">
@@ -417,25 +415,25 @@ export default function HomePage() {
               flexWrap: 'wrap',
               justifyContent: 'space-between',
               alignItems: 'flex-end',
-              gap: '20px',
-              marginBottom: '48px',
+              gap: '16px',
+              marginBottom: '40px',
             }}
           >
             <div>
               <div className="badge">
-                <span>The Minds Behind Zynthax</span>
+                <span>Our Leadership</span>
               </div>
-              <h2 style={{ fontSize: '2.5rem', marginBottom: '8px' }}>
-                Meet Our <span className="text-gradient">Leadership & Engineers</span>
+              <h2 style={{ fontSize: '2.3rem', color: '#0f172a', marginBottom: '6px' }}>
+                Meet the Core Team
               </h2>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '1rem' }}>
-                Passionate builders with expertise across engineering, design, and multimedia.
+              <p style={{ color: '#64748b', fontSize: '0.975rem' }}>
+                Experienced software engineers, visual designers, and digital specialists.
               </p>
             </div>
 
             <Link href="/team" className="btn-secondary btn-sm">
-              <span>View Full Team</span>
-              <ArrowRight size={15} />
+              <span>View Entire Team</span>
+              <ArrowRight size={14} />
             </Link>
           </div>
 
@@ -448,47 +446,78 @@ export default function HomePage() {
       </section>
 
       {/* 6. CALL TO ACTION STRIP */}
-      <section style={{ padding: '100px 0', position: 'relative' }}>
+      <section style={{ padding: '80px 0' }}>
         <div className="container">
           <div
-            className="glass-panel"
             style={{
-              padding: 'clamp(40px, 6vw, 70px)',
-              borderRadius: '28px',
+              padding: 'clamp(36px, 5vw, 60px)',
+              borderRadius: '16px',
               textAlign: 'center',
-              background: 'linear-gradient(135deg, rgba(16, 24, 40, 0.95) 0%, rgba(13, 17, 27, 0.95) 100%)',
-              border: '1px solid rgba(0, 242, 254, 0.35)',
-              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 242, 254, 0.15)',
+              background: '#2563eb',
+              color: '#ffffff',
+              boxShadow: 'var(--shadow-lg)',
             }}
           >
             <h2
               style={{
-                fontSize: 'clamp(2rem, 4vw, 3.25rem)',
+                fontSize: 'clamp(1.8rem, 3.5vw, 2.75rem)',
                 fontWeight: 800,
-                marginBottom: '20px',
-                color: '#fff',
+                marginBottom: '14px',
+                color: '#ffffff',
               }}
             >
-              Have a Vision in Mind? Let’s <span className="text-gradient">Build It Together</span>.
+              Ready to Upgrade Your Digital Infrastructure?
             </h2>
             <p
               style={{
-                color: 'var(--text-secondary)',
-                fontSize: '1.15rem',
-                maxWidth: '620px',
-                margin: '0 auto 36px',
+                color: '#dbeafe',
+                fontSize: '1.05rem',
+                maxWidth: '600px',
+                margin: '0 auto 28px',
                 lineHeight: 1.6,
               }}
             >
-              Whether you need a full-stack Next.js web application, an Android retail billing app, or a complete brand overhaul, our team delivers with speed and precision.
+              Whether you need a custom retail billing app, a fast Next.js website, or high-impact video branding, our team is ready to deliver.
             </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center' }}>
-              <Link href="/contact" className="btn-primary">
-                <span>Get a Free Project Estimate</span>
-                <ArrowRight size={18} />
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
+              <Link
+                href="/contact"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: '#ffffff',
+                  color: '#1d4ed8',
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: 700,
+                  fontSize: '0.95rem',
+                  padding: '12px 24px',
+                  borderRadius: 'var(--radius-sm)',
+                  textDecoration: 'none',
+                  boxShadow: 'var(--shadow-sm)',
+                }}
+              >
+                <span>Request a Free Estimate</span>
+                <ArrowRight size={15} />
               </Link>
-              <a href="tel:+918848241519" className="btn-secondary">
+              <a
+                href="tel:+918848241519"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: 'rgba(255, 255, 255, 0.15)',
+                  color: '#ffffff',
+                  fontFamily: 'var(--font-display)',
+                  fontWeight: 600,
+                  fontSize: '0.95rem',
+                  padding: '12px 24px',
+                  borderRadius: 'var(--radius-sm)',
+                  textDecoration: 'none',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                }}
+              >
                 <span>Call +91 8848241519</span>
               </a>
             </div>

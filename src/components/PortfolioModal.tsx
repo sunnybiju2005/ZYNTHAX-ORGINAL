@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { PortfolioItem } from '@/types';
 import { getOptimizedCloudinaryUrl } from '@/lib/cloudinary';
-import { X, ExternalLink, Calendar, Building, Sparkles } from 'lucide-react';
+import { X, ExternalLink, Calendar, Building } from 'lucide-react';
 
 interface PortfolioModalProps {
   item: PortfolioItem | null;
@@ -39,9 +39,8 @@ export default function PortfolioModal({ item, categoryName, onClose }: Portfoli
         position: 'fixed',
         inset: 0,
         zIndex: 200,
-        backgroundColor: 'rgba(3, 5, 8, 0.85)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
+        backgroundColor: 'rgba(15, 23, 42, 0.65)',
+        backdropFilter: 'blur(4px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -51,18 +50,16 @@ export default function PortfolioModal({ item, categoryName, onClose }: Portfoli
       onClick={onClose}
     >
       <div
-        className="glass-panel"
         style={{
           width: '100%',
-          maxWidth: '850px',
+          maxWidth: '820px',
           maxHeight: '90vh',
           overflowY: 'auto',
-          backgroundColor: '#0c111c',
-          border: '1px solid rgba(0, 242, 254, 0.3)',
-          boxShadow: '0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 242, 254, 0.2)',
-          borderRadius: '20px',
-          padding: '0',
+          backgroundColor: '#ffffff',
+          borderRadius: '16px',
+          boxShadow: 'var(--shadow-xl)',
           position: 'relative',
+          border: '1px solid var(--border-subtle)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -71,41 +68,43 @@ export default function PortfolioModal({ item, categoryName, onClose }: Portfoli
           onClick={onClose}
           style={{
             position: 'absolute',
-            top: '18px',
-            right: '18px',
-            width: '40px',
-            height: '40px',
+            top: '16px',
+            right: '16px',
+            width: '36px',
+            height: '36px',
             borderRadius: '50%',
-            background: 'rgba(7, 9, 14, 0.8)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            color: '#ffffff',
+            background: '#ffffff',
+            border: '1px solid #cbd5e1',
+            color: '#334155',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
             zIndex: 10,
-            transition: 'all 0.2s ease',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+            transition: 'all 0.15s ease',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = '#00f2fe';
-            e.currentTarget.style.color = '#000';
+            e.currentTarget.style.background = '#f1f5f9';
+            e.currentTarget.style.color = '#0f172a';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = 'rgba(7, 9, 14, 0.8)';
-            e.currentTarget.style.color = '#fff';
+            e.currentTarget.style.background = '#ffffff';
+            e.currentTarget.style.color = '#334155';
           }}
           aria-label="Close modal"
         >
-          <X size={20} />
+          <X size={18} />
         </button>
 
-        {/* Modal Hero Image */}
+        {/* Modal Image */}
         <div
           style={{
             position: 'relative',
             width: '100%',
-            height: '380px',
-            backgroundColor: '#07090e',
+            height: '360px',
+            backgroundColor: '#f8fafc',
+            borderBottom: '1px solid var(--border-subtle)',
             overflow: 'hidden',
           }}
         >
@@ -118,37 +117,29 @@ export default function PortfolioModal({ item, categoryName, onClose }: Portfoli
               objectFit: 'cover',
             }}
           />
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(to top, #0c111c 0%, transparent 60%)',
-            }}
-          />
         </div>
 
-        {/* Modal Content */}
-        <div style={{ padding: '32px' }}>
+        {/* Content */}
+        <div style={{ padding: '30px' }}>
           <div
             style={{
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'center',
               gap: '12px',
-              marginBottom: '14px',
+              marginBottom: '12px',
             }}
           >
             {categoryName && (
               <span
                 style={{
-                  fontSize: '0.8rem',
-                  fontWeight: 700,
-                  padding: '4px 12px',
-                  borderRadius: '999px',
-                  background: 'rgba(0, 242, 254, 0.15)',
-                  color: 'var(--accent-cyan)',
-                  border: '1px solid rgba(0, 242, 254, 0.3)',
-                  textTransform: 'uppercase',
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  padding: '3px 10px',
+                  borderRadius: '4px',
+                  background: '#eff6ff',
+                  color: '#1d4ed8',
+                  border: '1px solid #bfdbfe',
                 }}
               >
                 {categoryName}
@@ -158,21 +149,21 @@ export default function PortfolioModal({ item, categoryName, onClose }: Portfoli
               <span
                 style={{
                   fontSize: '0.85rem',
-                  color: 'var(--text-secondary)',
+                  color: '#64748b',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
                 }}
               >
-                <Building size={14} color="var(--accent-cyan)" />
-                Client: <strong>{item.client}</strong>
+                <Building size={14} color="#2563eb" />
+                Client: <strong style={{ color: '#334155' }}>{item.client}</strong>
               </span>
             )}
             {item.createdAt && (
               <span
                 style={{
                   fontSize: '0.85rem',
-                  color: 'var(--text-muted)',
+                  color: '#64748b',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',
@@ -186,10 +177,10 @@ export default function PortfolioModal({ item, categoryName, onClose }: Portfoli
 
           <h2
             style={{
-              fontSize: '1.85rem',
+              fontSize: '1.75rem',
               fontWeight: 800,
-              color: '#ffffff',
-              marginBottom: '16px',
+              color: '#0f172a',
+              marginBottom: '14px',
               lineHeight: 1.25,
             }}
           >
@@ -198,10 +189,10 @@ export default function PortfolioModal({ item, categoryName, onClose }: Portfoli
 
           <p
             style={{
-              fontSize: '1.05rem',
+              fontSize: '1rem',
               lineHeight: 1.7,
-              color: '#cbd5e1',
-              marginBottom: '28px',
+              color: '#334155',
+              marginBottom: '24px',
             }}
           >
             {item.description}
@@ -209,55 +200,56 @@ export default function PortfolioModal({ item, categoryName, onClose }: Portfoli
 
           {/* Tags */}
           {item.tags && item.tags.length > 0 && (
-            <div style={{ marginBottom: '32px' }}>
+            <div style={{ marginBottom: '28px' }}>
               <h4
                 style={{
-                  fontSize: '0.85rem',
+                  fontSize: '0.8rem',
                   textTransform: 'uppercase',
-                  letterSpacing: '0.06em',
-                  color: 'var(--text-muted)',
-                  marginBottom: '10px',
+                  letterSpacing: '0.04em',
+                  color: '#64748b',
+                  marginBottom: '8px',
+                  fontWeight: 600,
                 }}
               >
                 Technologies & Deliverables
               </h4>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                 {item.tags.map((tag) => (
                   <span
                     key={tag}
                     style={{
-                      fontSize: '0.85rem',
-                      padding: '5px 12px',
-                      borderRadius: '8px',
-                      background: 'rgba(255, 255, 255, 0.05)',
-                      color: '#f8fafc',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      fontSize: '0.8rem',
+                      padding: '4px 10px',
+                      borderRadius: '4px',
+                      background: '#f1f5f9',
+                      color: '#334155',
+                      fontWeight: 500,
                     }}
                   >
-                    #{tag}
+                    {tag}
                   </span>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Action Row */}
+          {/* Footer Actions */}
           <div
             style={{
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'center',
               justifyContent: 'space-between',
-              gap: '16px',
-              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-              paddingTop: '24px',
+              gap: '12px',
+              borderTop: '1px solid var(--border-subtle)',
+              paddingTop: '20px',
             }}
           >
-            <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-              Optimized by Cloudinary (WebP/AVIF auto format)
+            <div style={{ fontSize: '0.825rem', color: '#64748b' }}>
+              Optimized by Cloudinary (f_auto, q_auto)
             </div>
 
-            <div style={{ display: 'flex', gap: '12px' }}>
+            <div style={{ display: 'flex', gap: '10px' }}>
               {item.link && (
                 <a
                   href={item.link}
@@ -266,7 +258,7 @@ export default function PortfolioModal({ item, categoryName, onClose }: Portfoli
                   className="btn-primary btn-sm"
                 >
                   <span>Visit Live Project</span>
-                  <ExternalLink size={15} />
+                  <ExternalLink size={14} />
                 </a>
               )}
               <button onClick={onClose} className="btn-secondary btn-sm">

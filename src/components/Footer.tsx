@@ -29,17 +29,45 @@ export default function Footer() {
         >
           {/* Brand Column */}
           <div>
-            <div style={{ marginBottom: '16px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
               <img
                 src="https://res.cloudinary.com/dqhn8wq7k/image/upload/f_auto,q_auto/v1788722645/klbk6xthte9ldhnp0uuf.png"
                 alt="Zynthax Digital Solutions"
                 style={{
-                  height: '42px',
+                  height: '38px',
                   width: 'auto',
                   objectFit: 'contain',
                   display: 'block',
+                  flexShrink: 0,
                 }}
               />
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <span
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontWeight: 800,
+                    fontSize: '1.25rem',
+                    letterSpacing: '0.03em',
+                    color: '#ffffff',
+                    lineHeight: 1.1,
+                  }}
+                >
+                  ZYNTHAX
+                </span>
+                <span
+                  style={{
+                    fontSize: '0.625rem',
+                    color: '#94a3b8',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    fontWeight: 600,
+                    lineHeight: 1,
+                    marginTop: '3px',
+                  }}
+                >
+                  Digital Solutions
+                </span>
+              </div>
             </div>
 
             <p

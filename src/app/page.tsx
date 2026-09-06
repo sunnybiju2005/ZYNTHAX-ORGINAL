@@ -34,8 +34,8 @@ export default function HomePage() {
       {/* 1. HERO SECTION (Clean, confident, zero generic badges, zero stats bar) */}
       <section
         style={{
-          paddingTop: '80px',
-          paddingBottom: '88px',
+          paddingTop: 'clamp(44px, 8vw, 80px)',
+          paddingBottom: 'clamp(52px, 8vw, 88px)',
           background: '#ffffff',
           borderBottom: '1px solid var(--border-subtle)',
         }}
@@ -51,12 +51,12 @@ export default function HomePage() {
             {/* Plain text kicker without any pill, border, or dot */}
             <div
               style={{
-                fontSize: '0.85rem',
+                fontSize: '0.825rem',
                 fontWeight: 600,
                 color: '#64748b',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
-                marginBottom: '16px',
+                marginBottom: '14px',
               }}
             >
               Digital Services & Engineering
@@ -65,12 +65,12 @@ export default function HomePage() {
             {/* Headline: One consistent color and weight throughout */}
             <h1
               style={{
-                fontSize: 'clamp(2.4rem, 4.5vw, 3.75rem)',
+                fontSize: 'clamp(1.95rem, 5.5vw, 3.5rem)',
                 fontWeight: 800,
                 color: '#0f172a',
-                lineHeight: 1.15,
+                lineHeight: 1.2,
                 letterSpacing: '-0.025em',
-                marginBottom: '22px',
+                marginBottom: '20px',
               }}
             >
               Full-stack software engineering, retail billing apps, and digital branding for growing companies.
@@ -79,10 +79,10 @@ export default function HomePage() {
             {/* Subtitle */}
             <p
               style={{
-                fontSize: 'clamp(1.05rem, 1.8vw, 1.2rem)',
+                fontSize: 'clamp(1rem, 2.5vw, 1.15rem)',
                 lineHeight: 1.65,
                 color: '#475569',
-                marginBottom: '36px',
+                marginBottom: '32px',
                 maxWidth: '680px',
                 marginLeft: 'auto',
                 marginRight: 'auto',
@@ -93,6 +93,7 @@ export default function HomePage() {
 
             {/* Actions: Clean plain text buttons, zero arrows */}
             <div
+              className="hero-actions-container"
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',

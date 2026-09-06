@@ -1,6 +1,6 @@
 import { WorkCategory, PortfolioItem, TeamMember, SiteContent, ServiceItem } from '@/types';
 import { db } from './firebase';
-import { collection, doc, writeBatch, serverTimestamp } from 'firebase/firestore';
+import { collection, doc, writeBatch, serverTimestamp, getDoc } from 'firebase/firestore';
 
 export const initialWorkCategories: WorkCategory[] = [
   {
@@ -419,9 +419,11 @@ export const servicesData: ServiceItem[] = [
 ];
 
 /**
- * Helper to seed Firestore with initial data when Firebase is connected
+ * Helper to seed Firestore with initial data when Firebase is connected.
+ * Safe mode: Only creates missing documents and NEVER overwrites existing
+ * photos, team members, or portfolio edits made by the user.
  */
-export async function seedFirestoreDatabase(): Promise<{ success: boolean; message: string }> {
+export async function seedFirestoreDatabase(forceOverwrite = false): Promise<{ success: boolean; message: string }> {
   if (!db) {
     return {
       success: false,
@@ -430,39 +432,71 @@ export async function seedFirestoreDatabase(): Promise<{ success: boolean; messa
   }
 
   try {
+    let createdCount = 0;
+    let preservedCount = 0;
     const batch = writeBatch(db);
 
-    // 1. Seed Categories
+    // 1. Categories
     for (const cat of initialWorkCategories) {
       const ref = doc(db, 'workCategories', cat.id);
-      batch.set(ref, cat, { merge: true });
+      const snap = await getDoc(ref);
+      if (!snap.exists() || forceOverwrite) {
+        batch.set(ref, cat, { merge: true });
+        createdCount++;
+      } else {
+        preservedCount++;
+      }
     }
 
-    // 2. Seed Portfolio Items
+    // 2. Portfolio Items
     for (const item of initialPortfolioItems) {
       const ref = doc(db, 'portfolioItems', item.id);
-      batch.set(ref, {
-        ...item,
-        timestamp: serverTimestamp(),
-      }, { merge: true });
+      const snap = await getDoc(ref);
+      if (!snap.exists() || forceOverwrite) {
+        batch.set(ref, {
+          ...item,
+          timestamp: serverTimestamp(),
+        }, { merge: true });
+        createdCount++;
+      } else {
+        preservedCount++;
+      }
     }
 
-    // 3. Seed Team Members
+    // 3. Team Members
     for (const member of initialTeamMembers) {
       const ref = doc(db, 'teamMembers', member.id);
-      batch.set(ref, member, { merge: true });
+      const snap = await getDoc(ref);
+      if (!snap.exists() || forceOverwrite) {
+        batch.set(ref, member, { merge: true });
+        createdCount++;
+      } else {
+        preservedCount++;
+      }
     }
 
-    // 4. Seed Site Content
+    // 4. Site Content
     const siteContentRef = doc(db, 'siteContent', 'main');
-    batch.set(siteContentRef, initialSiteContent, { merge: true });
+    const siteContentSnap = await getDoc(siteContentRef);
+    if (!siteContentSnap.exists() || forceOverwrite) {
+      batch.set(siteContentRef, initialSiteContent, { merge: true });
+      createdCount++;
+    } else {
+      preservedCount++;
+    }
 
-    await batch.commit();
-
-    return {
-      success: true,
-      message: 'Successfully seeded workCategories, portfolioItems, teamMembers, and siteContent into Firestore!',
-    };
+    if (createdCount > 0) {
+      await batch.commit();
+      return {
+        success: true,
+        message: `Successfully seeded ${createdCount} missing item(s) to Firestore. (Protected ${preservedCount} existing custom items).`,
+      };
+    } else {
+      return {
+        success: true,
+        message: `All ${preservedCount} items already exist in Firestore! Your custom photos, team members, and works were safely preserved without being overwritten.`,
+      };
+    }
   } catch (err: any) {
     console.error('Firestore seeding failed:', err);
     return {

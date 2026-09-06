@@ -123,6 +123,23 @@ export default function DatabaseStatusBadge() {
             </div>
           </div>
 
+          {/* Auto-sync info notice */}
+          <div
+            style={{
+              marginTop: '10px',
+              padding: '8px 10px',
+              background: '#f8fafc',
+              border: '1px solid #e2e8f0',
+              borderRadius: '6px',
+              fontSize: '0.725rem',
+              color: '#475569',
+              lineHeight: 1.4,
+            }}
+          >
+            <strong style={{ color: '#0f172a', display: 'block', marginBottom: '2px' }}>⚡ Real-Time Auto-Sync:</strong>
+            Edits made in Firebase Console (photos, names, works) update the website automatically in real-time. You do <em>not</em> need to re-seed to see your changes.
+          </div>
+
           {result && (
             <div
               style={{
@@ -151,20 +168,26 @@ export default function DatabaseStatusBadge() {
           )}
 
           {isFirebaseConfigured && (
-            <button
-              onClick={handleSeed}
-              disabled={seeding}
-              className="btn-primary btn-sm"
-              style={{
-                width: '100%',
-                marginTop: '12px',
-                justifyContent: 'center',
-                fontSize: '0.775rem',
-              }}
-            >
-              <RefreshCw size={12} className={seeding ? 'animate-spin' : ''} />
-              <span>{seeding ? 'Seeding...' : 'Seed Collections to Firestore'}</span>
-            </button>
+            <div style={{ marginTop: '12px' }}>
+              <button
+                onClick={handleSeed}
+                disabled={seeding}
+                className="btn-secondary btn-sm"
+                style={{
+                  width: '100%',
+                  justifyContent: 'center',
+                  fontSize: '0.75rem',
+                  padding: '7px 12px',
+                }}
+                title="Only fills in missing collections. Will never overwrite custom photos or edits."
+              >
+                <RefreshCw size={12} className={seeding ? 'animate-spin' : ''} />
+                <span>{seeding ? 'Checking...' : 'Safe Seed (Protects Custom Edits)'}</span>
+              </button>
+              <div style={{ fontSize: '0.675rem', color: '#64748b', textAlign: 'center', marginTop: '4px' }}>
+                Safe mode: skips existing photos &amp; details
+              </div>
+            </div>
           )}
 
           {!isFirebaseConfigured && (

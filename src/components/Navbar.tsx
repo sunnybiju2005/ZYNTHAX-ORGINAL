@@ -56,26 +56,55 @@ export default function Navbar() {
           justifyContent: 'space-between',
         }}
       >
-        {/* Brand Logo */}
+        {/* Brand Logo & Company Name */}
         <Link
           href="/"
           style={{
             display: 'flex',
             alignItems: 'center',
+            gap: '10px',
             textDecoration: 'none',
           }}
         >
           <img
             src="https://res.cloudinary.com/dqhn8wq7k/image/upload/f_auto,q_auto/v1788722645/klbk6xthte9ldhnp0uuf.png"
-            alt="Zynthax Digital Solutions"
+            alt="Zynthax Digital Solutions Logo"
             style={{
-              height: '46px',
+              height: '38px',
               width: 'auto',
-              maxHeight: '48px',
+              maxHeight: '40px',
               objectFit: 'contain',
               display: 'block',
+              flexShrink: 0,
             }}
           />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontWeight: 800,
+                fontSize: 'clamp(1.15rem, 3.5vw, 1.35rem)',
+                letterSpacing: '0.03em',
+                color: '#0f172a',
+                lineHeight: 1.1,
+              }}
+            >
+              ZYNTHAX
+            </span>
+            <span
+              style={{
+                fontSize: '0.625rem',
+                color: '#64748b',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                fontWeight: 600,
+                lineHeight: 1,
+                marginTop: '3px',
+              }}
+            >
+              Digital Solutions
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -128,9 +157,9 @@ export default function Navbar() {
               justifyContent: 'center',
               background: '#ffffff',
               border: '1px solid var(--border-subtle)',
-              borderRadius: '4px',
-              padding: '7px',
-              color: '#334155',
+              borderRadius: '6px',
+              padding: '8px',
+              color: '#0f172a',
               cursor: 'pointer',
             }}
             className="mobile-toggle"
@@ -141,54 +170,83 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer & Backdrop */}
       {mobileMenuOpen && (
-        <div
-          style={{
-            position: 'absolute',
-            top: 'var(--header-height)',
-            left: 0,
-            right: 0,
-            background: '#ffffff',
-            borderBottom: '1px solid var(--border-subtle)',
-            padding: '20px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '6px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
-          }}
-        >
-          {NAV_LINKS.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                style={{
-                  padding: '10px 12px',
-                  borderRadius: '4px',
-                  textDecoration: 'none',
-                  fontSize: '0.95rem',
-                  fontWeight: isActive ? 600 : 500,
-                  color: isActive ? '#0f172a' : '#475569',
-                  background: isActive ? '#f1f5f9' : 'transparent',
-                }}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-
-          <Link
-            href="/contact"
+        <>
+          <div
             onClick={() => setMobileMenuOpen(false)}
-            className="btn-primary"
-            style={{ marginTop: '10px', width: '100%' }}
+            style={{
+              position: 'fixed',
+              top: 'var(--header-height)',
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'rgba(15, 23, 42, 0.4)',
+              backdropFilter: 'blur(4px)',
+              zIndex: 98,
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="mobile-drawer-anim"
+            style={{
+              position: 'absolute',
+              top: 'var(--header-height)',
+              left: 0,
+              right: 0,
+              background: '#ffffff',
+              borderBottom: '1px solid var(--border-subtle)',
+              padding: '16px 20px 24px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '6px',
+              boxShadow: '0 12px 24px -4px rgba(0,0,0,0.12)',
+              zIndex: 99,
+            }}
           >
-            Start a Project
-          </Link>
-        </div>
+            {NAV_LINKS.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{
+                    padding: '12px 14px',
+                    borderRadius: '6px',
+                    textDecoration: 'none',
+                    fontSize: '1rem',
+                    fontWeight: isActive ? 700 : 500,
+                    color: isActive ? '#2563eb' : '#1e293b',
+                    background: isActive ? '#eff6ff' : 'transparent',
+                    borderLeft: isActive ? '3px solid #2563eb' : '3px solid transparent',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    transition: 'all 0.15s ease',
+                  }}
+                >
+                  <span>{link.name}</span>
+                </Link>
+              );
+            })}
+
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="btn-primary"
+              style={{
+                marginTop: '12px',
+                width: '100%',
+                padding: '13px 20px',
+                fontSize: '0.95rem',
+                justifyContent: 'center',
+              }}
+            >
+              Start a Project
+            </Link>
+          </div>
+        </>
       )}
 
     </header>

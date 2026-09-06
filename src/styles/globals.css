@@ -317,6 +317,11 @@ h1, h2, h3, h4, h5, h6 {
   display: flex !important;
   align-items: center;
   justify-content: center;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.mobile-toggle:active {
+  transform: scale(0.94);
 }
 
 @media (min-width: 868px) {
@@ -328,5 +333,65 @@ h1, h2, h3, h4, h5, h6 {
   }
   .mobile-toggle {
     display: none !important;
+  }
+}
+
+/* Dynamic Mobile Drawer Animation */
+@keyframes drawerSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-drawer-anim {
+  animation: drawerSlideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Touch & Mobile UX Enhancements */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-primary:active, .btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Touch-scrolling helpers */
+.touch-scroll-row {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.touch-scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile viewport adjustments */
+@media (max-width: 768px) {
+  .form-input, .form-textarea, .form-select {
+    font-size: 16px !important; /* Prevents iOS auto-zoom on input focus */
+  }
+  .container {
+    padding: 0 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+  .hero-actions-container {
+    flex-direction: column !important;
+    width: 100%;
+  }
+  .hero-actions-container > a,
+  .hero-actions-container > button {
+    width: 100% !important;
+    text-align: center;
   }
 }

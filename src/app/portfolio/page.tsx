@@ -55,19 +55,22 @@ function PortfolioContent() {
 
         {/* Filter Category Tabs */}
         <div
+          className="touch-scroll-row"
           style={{
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            gap: '6px',
+            gap: '8px',
             marginBottom: '36px',
+            paddingBottom: '4px',
           }}
         >
           <button
             onClick={() => setSelectedCategory('all')}
             style={{
-              padding: '7px 16px',
+              padding: '8px 16px',
               borderRadius: '4px',
+              whiteSpace: 'nowrap',
               border: selectedCategory === 'all'
                 ? '1px solid #0f172a'
                 : '1px solid #e2e8f0',
@@ -91,8 +94,9 @@ function PortfolioContent() {
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
                 style={{
-                  padding: '7px 16px',
+                  padding: '8px 16px',
                   borderRadius: '4px',
+                  whiteSpace: 'nowrap',
                   border: isSelected
                     ? '1px solid #0f172a'
                     : '1px solid #e2e8f0',

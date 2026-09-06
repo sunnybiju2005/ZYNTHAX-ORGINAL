@@ -29,31 +29,17 @@ export default function Footer() {
         >
           {/* Brand Column */}
           <div>
-            <div style={{ marginBottom: '14px' }}>
-              <div
+            <div style={{ marginBottom: '16px' }}>
+              <img
+                src="https://res.cloudinary.com/dqhn8wq7k/image/upload/f_auto,q_auto/v1788722645/klbk6xthte9ldhnp0uuf.png"
+                alt="Zynthax Digital Solutions"
                 style={{
-                  fontFamily: 'var(--font-display)',
-                  fontWeight: 800,
-                  fontSize: '1.3rem',
-                  letterSpacing: '0.04em',
-                  color: '#ffffff',
-                  lineHeight: 1,
+                  height: '42px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  display: 'block',
                 }}
-              >
-                ZYNTHAX
-              </div>
-              <div
-                style={{
-                  fontSize: '0.625rem',
-                  color: '#94a3b8',
-                  letterSpacing: '0.14em',
-                  textTransform: 'uppercase',
-                  fontWeight: 600,
-                  marginTop: '3px',
-                }}
-              >
-                Digital Solutions
-              </div>
+              />
             </div>
 
             <p
@@ -232,9 +218,6 @@ export default function Footer() {
         >
           <div>
             &copy; {new Date().getFullYear()} Zynthax Digital Solutions. All rights reserved.
-          </div>
-          <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-            <span>Firebase Firestore & Cloudinary Connected</span>
           </div>
         </div>
       </div>

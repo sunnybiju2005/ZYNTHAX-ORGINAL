@@ -1,18 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import {
-  usePortfolioItems,
-  useWorkCategories,
-  useTeamMembers,
-  useSiteContent,
-} from '@/lib/firestoreHooks';
+import { useSiteContent } from '@/lib/firestoreHooks';
 import { servicesData } from '@/lib/seedData';
-import PortfolioCard from '@/components/PortfolioCard';
-import PortfolioModal from '@/components/PortfolioModal';
-import TeamCard from '@/components/TeamCard';
-import { PortfolioItem } from '@/types';
 import {
   Globe,
   Layout,
@@ -22,8 +13,6 @@ import {
   Film,
   PlayCircle,
   Sparkles,
-  Star,
-  CheckCircle2,
 } from 'lucide-react';
 
 const ICON_MAP: Record<string, React.ReactNode> = {
@@ -38,15 +27,7 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 };
 
 export default function HomePage() {
-  const { items: portfolioItems, loading: portfolioLoading } = usePortfolioItems();
-  const { categories } = useWorkCategories();
-  const { members } = useTeamMembers();
   const { content } = useSiteContent();
-
-  const [selectedPortfolio, setSelectedPortfolio] = useState<PortfolioItem | null>(null);
-
-  const featuredPortfolio = portfolioItems.filter((i) => i.featured).slice(0, 6);
-  const featuredTeam = members.slice(0, 3);
 
   return (
     <div>
@@ -223,177 +204,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. FEATURED WORK */}
-      <section style={{ padding: '80px 0', background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
-        <div className="container">
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'space-between',
-              alignItems: 'flex-end',
-              gap: '16px',
-              marginBottom: '36px',
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  fontSize: '0.8rem',
-                  fontWeight: 700,
-                  color: '#2563eb',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  marginBottom: '6px',
-                }}
-              >
-                Portfolio
-              </div>
-              <h2 style={{ fontSize: '2.1rem', color: '#0f172a', fontWeight: 800 }}>
-                Selected Deliverables
-              </h2>
-            </div>
-
-            <Link href="/portfolio" className="btn-secondary btn-sm">
-              All Projects
-            </Link>
-          </div>
-
-          {portfolioLoading ? (
-            <div style={{ padding: '40px 0', color: '#64748b' }}>
-              Loading portfolio data...
-            </div>
-          ) : (
-            <div className="grid-3">
-              {featuredPortfolio.map((item) => {
-                const category = categories.find((c) => c.id === item.categoryId);
-                return (
-                  <PortfolioCard
-                    key={item.id}
-                    item={item}
-                    categoryName={category?.name || 'Project'}
-                    onOpenModal={(item) => setSelectedPortfolio(item)}
-                  />
-                );
-              })}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* 4. CLIENT TESTIMONIALS */}
-      <section style={{ padding: '80px 0', background: '#f8fafc' }}>
-        <div className="container">
-          <div style={{ marginBottom: '36px' }}>
-            <div
-              style={{
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: '#2563eb',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-                marginBottom: '6px',
-              }}
-            >
-              Client Feedback
-            </div>
-            <h2 style={{ fontSize: '2.1rem', color: '#0f172a', fontWeight: 800 }}>
-              What Founders & Business Owners Say
-            </h2>
-          </div>
-
-          <div className="grid-3">
-            {content.testimonials.map((testimonial) => (
-              <div
-                key={testimonial.id}
-                style={{
-                  padding: '26px',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  background: '#ffffff',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '6px',
-                }}
-              >
-                <div>
-                  <div style={{ display: 'flex', gap: '3px', marginBottom: '12px' }}>
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} size={14} fill="#f59e0b" color="#f59e0b" />
-                    ))}
-                  </div>
-
-                  <p
-                    style={{
-                      color: '#334155',
-                      fontSize: '0.9rem',
-                      lineHeight: 1.6,
-                      marginBottom: '20px',
-                    }}
-                  >
-                    “{testimonial.content}”
-                  </p>
-                </div>
-
-                <div style={{ borderTop: '1px solid #f1f5f9', paddingTop: '14px' }}>
-                  <div style={{ fontWeight: 700, fontSize: '0.875rem', color: '#0f172a' }}>
-                    {testimonial.name}
-                  </div>
-                  <div style={{ fontSize: '0.775rem', color: '#64748b' }}>
-                    {testimonial.role}, {testimonial.company}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. TEAM HIGHLIGHT */}
-      <section style={{ padding: '80px 0', background: '#ffffff' }}>
-        <div className="container">
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'space-between',
-              alignItems: 'flex-end',
-              gap: '16px',
-              marginBottom: '36px',
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  fontSize: '0.8rem',
-                  fontWeight: 700,
-                  color: '#2563eb',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  marginBottom: '6px',
-                }}
-              >
-                Team
-              </div>
-              <h2 style={{ fontSize: '2.1rem', color: '#0f172a', fontWeight: 800 }}>
-                Leadership & Engineering
-              </h2>
-            </div>
-
-            <Link href="/team" className="btn-secondary btn-sm">
-              Full Directory
-            </Link>
-          </div>
-
-          <div className="grid-3">
-            {featuredTeam.map((member) => (
-              <TeamCard key={member.id} member={member} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. CALL TO ACTION SECTION */}
+      {/* 3. CALL TO ACTION SECTION */}
       <section
         style={{
           padding: '64px 0',
@@ -452,15 +263,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Lightbox Modal */}
-      <PortfolioModal
-        item={selectedPortfolio}
-        categoryName={
-          categories.find((c) => c.id === selectedPortfolio?.categoryId)?.name
-        }
-        onClose={() => setSelectedPortfolio(null)}
-      />
     </div>
   );
 }

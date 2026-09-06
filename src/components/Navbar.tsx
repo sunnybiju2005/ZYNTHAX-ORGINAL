@@ -56,39 +56,26 @@ export default function Navbar() {
           justifyContent: 'space-between',
         }}
       >
-        {/* Distinct Wordmark Logo (No generic icon square) */}
+        {/* Brand Logo */}
         <Link
           href="/"
           style={{
             display: 'flex',
-            flexDirection: 'column',
+            alignItems: 'center',
             textDecoration: 'none',
           }}
         >
-          <div
+          <img
+            src="https://res.cloudinary.com/dqhn8wq7k/image/upload/f_auto,q_auto/v1788722645/klbk6xthte9ldhnp0uuf.png"
+            alt="Zynthax Digital Solutions"
             style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 800,
-              fontSize: '1.35rem',
-              letterSpacing: '0.04em',
-              color: '#0f172a',
-              lineHeight: 1,
+              height: '46px',
+              width: 'auto',
+              maxHeight: '48px',
+              objectFit: 'contain',
+              display: 'block',
             }}
-          >
-            ZYNTHAX
-          </div>
-          <div
-            style={{
-              fontSize: '0.625rem',
-              color: '#64748b',
-              letterSpacing: '0.14em',
-              textTransform: 'uppercase',
-              fontWeight: 600,
-              marginTop: '3px',
-            }}
-          >
-            Digital Solutions
-          </div>
+          />
         </Link>
 
         {/* Desktop Navigation Links */}

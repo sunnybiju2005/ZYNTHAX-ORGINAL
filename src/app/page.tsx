@@ -113,7 +113,7 @@ export default function HomePage() {
       </section>
 
       {/* 2. SERVICES SECTION (Varied architectural styling) */}
-      <section style={{ padding: '80px 0', background: '#f8fafc' }}>
+      <section className="home-capabilities-section" style={{ padding: '80px 0', background: '#f8fafc' }}>
         <div className="container">
           <div style={{ marginBottom: '40px' }}>
             <div
@@ -207,6 +207,7 @@ export default function HomePage() {
 
       {/* 3. CALL TO ACTION SECTION */}
       <section
+        className="home-cta-section"
         style={{
           padding: '64px 0',
           background: '#0f172a',
@@ -222,6 +223,7 @@ export default function HomePage() {
             }}
           >
             <h2
+              className="home-cta-heading"
               style={{
                 fontSize: 'clamp(1.8rem, 3vw, 2.4rem)',
                 fontWeight: 800,
@@ -232,6 +234,7 @@ export default function HomePage() {
               Discuss your upcoming project
             </h2>
             <p
+              className="home-cta-body"
               style={{
                 color: '#94a3b8',
                 fontSize: '1rem',
@@ -242,7 +245,7 @@ export default function HomePage() {
               From custom retail billing apps to modern corporate web platforms, get in touch with our team for scope and pricing.
             </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
+            <div className="home-cta-actions" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
               <Link
                 href="/contact"
                 className="btn-primary"

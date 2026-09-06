@@ -58,12 +58,13 @@ export default function ServicesPage() {
         </div>
 
         {/* Services List */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
+        <div className="services-list" style={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
           {servicesData.map((service, index) => {
             return (
               <section
                 key={service.id}
                 id={service.id}
+                className="service-card"
                 style={{
                   padding: 'clamp(24px, 3.5vw, 40px)',
                   background: '#ffffff',
@@ -74,6 +75,7 @@ export default function ServicesPage() {
                 }}
               >
                 <div
+                  className="service-inner-grid"
                   style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -91,7 +93,7 @@ export default function ServicesPage() {
                         marginBottom: '14px',
                       }}
                     >
-                      <div
+                      <div className="service-icon-box"
                         style={{
                           width: '40px',
                           height: '40px',
@@ -100,12 +102,14 @@ export default function ServicesPage() {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
+                          flexShrink: 0,
                         }}
                       >
                         {ICON_MAP[service.iconName] || <Globe size={22} color="#2563eb" />}
                       </div>
                       <div>
                         <div
+                          className="service-number-label"
                           style={{
                             fontSize: '0.725rem',
                             fontWeight: 700,
@@ -116,13 +120,14 @@ export default function ServicesPage() {
                         >
                           Service {index + 1}
                         </div>
-                        <h2 style={{ fontSize: '1.5rem', color: '#0f172a', lineHeight: 1.25, fontWeight: 800 }}>
+                        <h2 className="service-card-title" style={{ fontSize: '1.5rem', color: '#0f172a', lineHeight: 1.25, fontWeight: 800 }}>
                           {service.title}
                         </h2>
                       </div>
                     </div>
 
                     <p
+                      className="service-card-tagline"
                       style={{
                         fontSize: '0.95rem',
                         fontWeight: 600,
@@ -135,6 +140,7 @@ export default function ServicesPage() {
                     </p>
 
                     <p
+                      className="service-card-description"
                       style={{
                         color: '#475569',
                         fontSize: '0.9rem',
@@ -146,7 +152,7 @@ export default function ServicesPage() {
                     </p>
 
                     {/* Action Buttons */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                    <div className="service-actions" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                       <button
                         onClick={() => setActiveRequestService(service.title)}
                         className="btn-primary btn-sm"
@@ -156,7 +162,7 @@ export default function ServicesPage() {
 
                       <Link
                         href={`/portfolio?category=${service.categorySlug}`}
-                        className="btn-secondary btn-sm"
+                        className="btn-secondary btn-sm service-samples-btn"
                       >
                         View Samples
                       </Link>
@@ -165,6 +171,7 @@ export default function ServicesPage() {
 
                   {/* Right Capabilities Box */}
                   <div
+                    className="service-capabilities-box"
                     style={{
                       background: '#f8fafc',
                       padding: '24px',
@@ -266,12 +273,15 @@ export default function ServicesPage() {
         <div
           style={{
             position: 'fixed',
-            inset: 0,
-            zIndex: 200,
+            top: 'var(--header-height)',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 90,
             backgroundColor: 'rgba(15, 23, 42, 0.6)',
             backdropFilter: 'blur(4px)',
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
             padding: '20px',
             overflowY: 'auto',
@@ -283,31 +293,45 @@ export default function ServicesPage() {
               width: '100%',
               maxWidth: '620px',
               position: 'relative',
+              marginTop: '12px',
+              marginBottom: '24px',
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={() => setActiveRequestService(null)}
+            <div
               style={{
-                position: 'absolute',
-                top: '-12px',
-                right: '-12px',
-                width: '32px',
-                height: '32px',
-                borderRadius: '50%',
-                background: '#ffffff',
-                border: '1px solid #cbd5e1',
-                color: '#334155',
                 display: 'flex',
+                justifyContent: 'space-between',
                 alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                zIndex: 10,
-                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                padding: '10px 16px',
+                background: '#f1f5f9',
+                borderRadius: '8px 8px 0 0',
+                borderBottom: '1px solid #e2e8f0',
               }}
             >
-              <X size={15} />
-            </button>
+              <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#334155' }}>
+                {activeRequestService}
+              </span>
+              <button
+                onClick={() => setActiveRequestService(null)}
+                style={{
+                  width: '30px',
+                  height: '30px',
+                  borderRadius: '6px',
+                  background: '#ffffff',
+                  border: '1px solid #cbd5e1',
+                  color: '#334155',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  flexShrink: 0,
+                }}
+                aria-label="Close"
+              >
+                <X size={15} />
+              </button>
+            </div>
             <ContactForm defaultSubject={activeRequestService} />
           </div>
         </div>

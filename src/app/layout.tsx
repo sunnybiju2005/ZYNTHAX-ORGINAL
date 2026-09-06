@@ -3,7 +3,7 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import '@/styles/globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import DatabaseStatusBadge from '@/components/DatabaseStatusBadge';
+
 
 const inter = Inter({
   subsets: ['latin'],
@@ -65,7 +65,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <DatabaseStatusBadge />
+
       </body>
     </html>
   );

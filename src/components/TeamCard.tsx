@@ -57,10 +57,11 @@ export default function TeamCard({ member }: TeamCardProps) {
 
       {/* Photo Container */}
       <div
+        className="team-card-photo"
         style={{
           position: 'relative',
           width: '100%',
-          paddingTop: '75%', // 4:3 aspect ratio
+          paddingTop: '75%',
           backgroundColor: '#f1f5f9',
           overflow: 'hidden',
         }}
@@ -85,6 +86,7 @@ export default function TeamCard({ member }: TeamCardProps) {
 
       {/* Details */}
       <div
+        className="team-card-body"
         style={{
           padding: '24px',
           display: 'flex',
@@ -93,6 +95,7 @@ export default function TeamCard({ member }: TeamCardProps) {
         }}
       >
         <h3
+          className="team-card-name"
           style={{
             fontSize: '1.25rem',
             fontWeight: 700,
@@ -103,6 +106,7 @@ export default function TeamCard({ member }: TeamCardProps) {
           {member.name}
         </h3>
         <div
+          className="team-card-role"
           style={{
             fontSize: '0.875rem',
             color: '#2563eb',
@@ -115,6 +119,7 @@ export default function TeamCard({ member }: TeamCardProps) {
 
         {/* Qualification Badge */}
         <div
+          className="team-card-qual"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -135,6 +140,7 @@ export default function TeamCard({ member }: TeamCardProps) {
 
         {/* Bio */}
         <p
+          className="team-card-bio"
           style={{
             color: '#475569',
             fontSize: '0.875rem',

@@ -34,10 +34,10 @@ function ContactContent() {
   ];
 
   return (
-    <div style={{ padding: '60px 0 90px' }}>
+    <div className="contact-page-wrapper" style={{ padding: '60px 0 90px' }}>
       <div className="container">
         {/* Page Header */}
-        <div style={{ maxWidth: '720px', margin: '0 auto 48px', textAlign: 'center' }}>
+        <div className="contact-header" style={{ maxWidth: '720px', margin: '0 auto 48px', textAlign: 'center' }}>
           <div
             style={{
               fontSize: '0.8rem',
@@ -59,7 +59,7 @@ function ContactContent() {
         </div>
 
         {/* Top Direct Contact Cards */}
-        <div className="grid-3" style={{ marginBottom: '40px' }}>
+        <div className="contact-cards-row grid-3" style={{ marginBottom: '40px' }}>
           {/* Email */}
           <a
             href="mailto:zynthax13@gmail.com"
@@ -183,7 +183,7 @@ function ContactContent() {
         </div>
 
         {/* Contact Form */}
-        <div style={{ maxWidth: '780px', margin: '0 auto 64px' }}>
+        <div className="contact-form-wrapper" style={{ maxWidth: '780px', margin: '0 auto 64px' }}>
           <ContactForm defaultSubject={defaultSubject} />
         </div>
 

@@ -53,16 +53,33 @@ function PortfolioContent() {
           </p>
         </div>
 
-        {/* Filter Category Tabs */}
+        {/* Filter Category Tabs — Desktop: buttons, Mobile: dropdown */}
+
+        {/* Mobile dropdown */}
+        <div className="portfolio-filter-dropdown" style={{ marginBottom: '28px' }}>
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            aria-label="Filter portfolio by category"
+          >
+            <option value="all">All Work ({items.length})</option>
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.id}>{cat.name}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Desktop button row */}
         <div
-          className="touch-scroll-row"
+          className="portfolio-filter-buttons touch-scroll-row"
           style={{
             display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
+            flexWrap: 'nowrap',
+            justifyContent: 'flex-start',
             gap: '8px',
             marginBottom: '36px',
             paddingBottom: '4px',
+            paddingLeft: '2px',
           }}
         >
           <button

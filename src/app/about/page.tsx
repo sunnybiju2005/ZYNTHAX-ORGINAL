@@ -56,6 +56,7 @@ export default function AboutPage() {
 
         {/* Narrative Story */}
         <div
+          className="about-story"
           style={{
             fontSize: '1.05rem',
             lineHeight: 1.8,
@@ -88,7 +89,7 @@ export default function AboutPage() {
         </div>
 
         {/* Founders Section */}
-        <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '48px', marginBottom: '56px' }}>
+        <div className="about-founders-section" style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '48px', marginBottom: '56px' }}>
           <div style={{ marginBottom: '28px' }}>
             <div
               style={{
@@ -124,6 +125,7 @@ export default function AboutPage() {
             {founders.map((founder) => (
               <div
                 key={founder.name}
+                className="about-founder-card"
                 style={{
                   padding: '24px',
                   background: '#ffffff',
@@ -137,6 +139,7 @@ export default function AboutPage() {
               >
                 {/* Photo Placeholder Slot */}
                 <div
+                  className="about-founder-avatar"
                   style={{
                     width: '68px',
                     height: '68px',
@@ -158,6 +161,7 @@ export default function AboutPage() {
 
                 <div>
                   <h3
+                    className="about-founder-name"
                     style={{
                       fontSize: '1.15rem',
                       fontWeight: 700,
@@ -168,6 +172,7 @@ export default function AboutPage() {
                     {founder.name}
                   </h3>
                   <div
+                    className="about-founder-title"
                     style={{
                       fontSize: '0.875rem',
                       fontWeight: 600,
@@ -178,6 +183,7 @@ export default function AboutPage() {
                     {founder.title}
                   </div>
                   <div
+                    className="about-founder-qual"
                     style={{
                       fontSize: '0.8rem',
                       color: '#64748b',

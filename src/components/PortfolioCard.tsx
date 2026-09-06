@@ -80,6 +80,7 @@ export default function PortfolioCard({ item, categoryName, onOpenModal }: Portf
 
       {/* Body Info */}
       <div
+        className="portfolio-card-body"
         style={{
           padding: '22px',
           display: 'flex',
@@ -97,6 +98,7 @@ export default function PortfolioCard({ item, categoryName, onOpenModal }: Portf
           }}
         >
           <h3
+            className="portfolio-card-title"
             style={{
               fontSize: '1.15rem',
               fontWeight: 700,
@@ -128,6 +130,7 @@ export default function PortfolioCard({ item, categoryName, onOpenModal }: Portf
         </div>
 
         <p
+          className="portfolio-card-desc"
           style={{
             color: '#475569',
             fontSize: '0.875rem',

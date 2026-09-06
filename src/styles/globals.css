@@ -364,8 +364,11 @@ h1, h2, h3, h4, h5, h6 {
 /* Touch-scrolling helpers */
 .touch-scroll-row {
   overflow-x: auto;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  /* Ensure content doesn't wrap and enables horizontal scroll */
+  flex-wrap: nowrap !important;
 }
 .touch-scroll-row::-webkit-scrollbar {
   display: none;
@@ -395,3 +398,236 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
   }
 }
+
+/* ─── Footer: toggle mobile vs desktop layout ──────────────────────────── */
+.footer-mobile  { display: block; }
+.footer-desktop { display: none; }
+@media (min-width: 769px) {
+  .footer-mobile  { display: none; }
+  .footer-desktop { display: block; }
+}
+
+/* ─── Home: hide Capabilities section on mobile ─────────────────────────── */
+.home-capabilities-section { display: block; }
+@media (max-width: 768px) {
+  .home-capabilities-section { display: none; }
+}
+
+/* ─── Home: shrink CTA / upcoming-project section on mobile ─────────────── */
+@media (max-width: 768px) {
+  .home-cta-section {
+    padding: 36px 0 !important;
+  }
+  .home-cta-heading {
+    font-size: 1.35rem !important;
+    margin-bottom: 8px !important;
+  }
+  .home-cta-body {
+    font-size: 0.875rem !important;
+    margin-bottom: 20px !important;
+  }
+  .home-cta-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .home-cta-actions > a,
+  .home-cta-actions > button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ─── About: story text on mobile ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .about-story {
+    font-size: 0.9rem !important;
+    line-height: 1.65 !important;
+    gap: 14px !important;
+    margin-bottom: 40px !important;
+  }
+  .about-founders-section {
+    padding-top: 32px !important;
+    margin-bottom: 36px !important;
+  }
+  .about-founder-card {
+    padding: 14px !important;
+    gap: 12px !important;
+  }
+  .about-founder-avatar {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  .about-founder-name {
+    font-size: 0.95rem !important;
+  }
+  .about-founder-title {
+    font-size: 0.8rem !important;
+  }
+  .about-founder-qual {
+    font-size: 0.72rem !important;
+  }
+}
+
+/* ─── Services page: compact on mobile ───────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Tighter gap between cards */
+  .services-list {
+    gap: 12px !important;
+  }
+
+  /* Card itself: less padding, thinner left accent */
+  .service-card {
+    padding: 16px 14px !important;
+    border-left-width: 3px !important;
+  }
+
+  /* Collapse the two-column grid to one column with zero gap */
+  .service-inner-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  /* Hide the capabilities/features box completely */
+  .service-capabilities-box {
+    display: none !important;
+  }
+
+  /* Make icon smaller and tighter */
+  .service-icon-box {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 4px !important;
+  }
+  .service-icon-box svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  /* Hide "Service N" counter label — wastes space on mobile */
+  .service-number-label {
+    display: none !important;
+  }
+
+  /* Smaller title */
+  .service-card-title {
+    font-size: 1rem !important;
+    line-height: 1.3 !important;
+  }
+
+  /* One-line truncated tagline */
+  .service-card-tagline {
+    font-size: 0.8rem !important;
+    margin-bottom: 10px !important;
+    line-height: 1.4 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Hide long description paragraph entirely */
+  .service-card-description {
+    display: none !important;
+  }
+
+  /* Buttons: stack if needed but hide View Samples on mobile */
+  .service-actions {
+    gap: 8px !important;
+  }
+  .service-samples-btn {
+    display: none !important;
+  }
+  .service-actions .btn-primary {
+    font-size: 0.8rem !important;
+    padding: 8px 14px !important;
+  }
+}
+
+/* ─── Team card: smaller photo + text on mobile ─────────────────────────── */
+@media (max-width: 768px) {
+  .team-card-photo {
+    padding-top: 60% !important; /* less tall on mobile */
+  }
+  .team-card-body {
+    padding: 14px !important;
+  }
+  .team-card-name {
+    font-size: 1rem !important;
+  }
+  .team-card-role {
+    font-size: 0.8rem !important;
+    margin-bottom: 8px !important;
+  }
+  .team-card-qual {
+    font-size: 0.72rem !important;
+    margin-bottom: 10px !important;
+  }
+  .team-card-bio {
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 14px !important;
+  }
+}
+
+/* ─── Portfolio card: smaller text on mobile ─────────────────────────────── */
+@media (max-width: 768px) {
+  .portfolio-card-body {
+    padding: 14px !important;
+  }
+  .portfolio-card-title {
+    font-size: 0.95rem !important;
+  }
+  .portfolio-card-desc {
+    font-size: 0.8rem !important;
+    margin-bottom: 12px !important;
+  }
+}
+
+/* ─── Portfolio filter: hide buttons row, show dropdown on mobile ─────────── */
+.portfolio-filter-buttons { display: flex; }
+.portfolio-filter-dropdown { display: none; }
+@media (max-width: 768px) {
+  .portfolio-filter-buttons { display: none !important; }
+  .portfolio-filter-dropdown { display: block !important; }
+  .portfolio-filter-dropdown select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 0.95rem;
+    font-family: var(--font-main);
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+  }
+  .portfolio-filter-dropdown select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  }
+}
+
+/* ─── Contact page: mobile alignment ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .contact-page-wrapper {
+    padding: 36px 0 60px !important;
+  }
+  .contact-header {
+    margin-bottom: 28px !important;
+  }
+  .contact-cards-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin-bottom: 28px !important;
+  }
+  .contact-form-wrapper {
+    margin-bottom: 40px !important;
+  }
+}
+

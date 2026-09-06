@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { User } from 'lucide-react';
+import AboutFounders from '@/components/AboutFounders';
 
 export const metadata: Metadata = {
   title: 'About Us | Zynthax Digital Solutions',
@@ -9,20 +9,6 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const founders = [
-    {
-      name: 'Sunny Biju',
-      title: 'Co-Founder',
-      qualification: 'BSc Computer Science',
-      initials: 'SB',
-    },
-    {
-      name: 'Irene Sabu',
-      title: 'Co-Founder',
-      qualification: 'Computer Science Engineering',
-      initials: 'IS',
-    },
-  ];
 
   return (
     <div style={{ padding: '60px 0 90px' }}>
@@ -115,86 +101,7 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '24px',
-            }}
-          >
-            {founders.map((founder) => (
-              <div
-                key={founder.name}
-                className="about-founder-card"
-                style={{
-                  padding: '24px',
-                  background: '#ffffff',
-                  border: '1px solid var(--border-subtle)',
-                  borderRadius: '10px',
-                  boxShadow: 'var(--shadow-xs)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '18px',
-                }}
-              >
-                {/* Photo Placeholder Slot */}
-                <div
-                  className="about-founder-avatar"
-                  style={{
-                    width: '68px',
-                    height: '68px',
-                    borderRadius: '8px',
-                    background: '#f1f5f9',
-                    border: '1px solid #e2e8f0',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#64748b',
-                    fontSize: '1.1rem',
-                    fontWeight: 700,
-                    flexShrink: 0,
-                  }}
-                  title="Photo slot (manageable via admin)"
-                >
-                  <User size={28} color="#94a3b8" />
-                </div>
-
-                <div>
-                  <h3
-                    className="about-founder-name"
-                    style={{
-                      fontSize: '1.15rem',
-                      fontWeight: 700,
-                      color: '#0f172a',
-                      marginBottom: '3px',
-                    }}
-                  >
-                    {founder.name}
-                  </h3>
-                  <div
-                    className="about-founder-title"
-                    style={{
-                      fontSize: '0.875rem',
-                      fontWeight: 600,
-                      color: '#2563eb',
-                      marginBottom: '3px',
-                    }}
-                  >
-                    {founder.title}
-                  </div>
-                  <div
-                    className="about-founder-qual"
-                    style={{
-                      fontSize: '0.8rem',
-                      color: '#64748b',
-                    }}
-                  >
-                    {founder.qualification}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <AboutFounders />
         </div>
 
         {/* Call to Action */}

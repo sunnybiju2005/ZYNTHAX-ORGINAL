@@ -4,6 +4,8 @@ service cloud.firestore {
   match /databases/{database}/documents {
     
     // Work Categories: Public read, admin write
+    // NOTE: For initial database seeding via the browser button, you can temporarily change
+    // 'allow write: if request.auth != null;' to 'allow write: if true;' then revert to secure mode.
     match /workCategories/{categoryId} {
       allow read: if true;
       allow write: if request.auth != null;

@@ -48,7 +48,7 @@ export interface ClientMessage {
   phone: string;
   subject: string;
   message: string;
-  status: 'new' | 'read' | 'in-progress' | 'replied';
+  status: 'unread' | 'read' | 'new' | 'in-progress' | 'replied';
   timestamp: any;
 }
 

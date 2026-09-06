@@ -66,6 +66,18 @@ NEXT_PUBLIC_CONTACT_PHONE=+91 8848241519
 
 ---
 
+## ⚡ Initial Firestore Seeding (1-Click)
+
+The site includes built-in seed datasets for `workCategories`, `portfolioItems`, `teamMembers`, and `siteContent`:
+
+1. Start the dev server (`npm run dev`) with your Firebase keys in `.env.local`.
+2. Look at the bottom-left corner of any page for the **Firestore: Live** status badge.
+3. Click the badge to open the backend status card.
+4. Click **"Seed Collections to Firestore"** to automatically populate your Firestore database with the verified Zynthax datasets in one batch!
+5. Once seeded, real-time listeners (`onSnapshot`) instantly reflect the live data across all pages without requiring a page refresh or redeployment.
+
+---
+
 ## 🛠️ Development & Running Locally
 
 ```powershell

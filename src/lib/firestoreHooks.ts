@@ -232,7 +232,7 @@ export async function submitClientMessage(
     if (isFirebaseConfigured && db) {
       const docRef = await addDoc(collection(db, 'clientMessages'), {
         ...payload,
-        status: 'new',
+        status: 'unread',
         timestamp: serverTimestamp(),
       });
       return {

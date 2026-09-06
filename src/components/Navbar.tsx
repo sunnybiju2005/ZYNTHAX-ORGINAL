@@ -92,14 +92,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav
-          style={{
-            display: 'none',
-            alignItems: 'center',
-            gap: '6px',
-          }}
-          className="desktop-nav"
-        >
+        <nav className="desktop-nav">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -123,7 +116,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Action Button (No generic arrow icon) */}
+        {/* Action Button */}
         <div
           style={{
             display: 'flex',
@@ -133,8 +126,7 @@ export default function Navbar() {
         >
           <Link
             href="/contact"
-            className="btn-primary btn-sm"
-            style={{ display: 'none' }}
+            className="btn-primary btn-sm desktop-cta"
             id="nav-cta-btn"
           >
             Start a Project
@@ -212,19 +204,6 @@ export default function Navbar() {
         </div>
       )}
 
-      <style jsx>{`
-        @media (min-width: 868px) {
-          :global(.desktop-nav) {
-            display: flex !important;
-          }
-          :global(#nav-cta-btn) {
-            display: inline-flex !important;
-          }
-          :global(.mobile-toggle) {
-            display: none !important;
-          }
-        }
-      `}</style>
     </header>
   );
 }

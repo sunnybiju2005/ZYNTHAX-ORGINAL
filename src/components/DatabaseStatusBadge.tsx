@@ -127,15 +127,26 @@ export default function DatabaseStatusBadge() {
             <div
               style={{
                 marginTop: '10px',
-                padding: '8px 12px',
-                borderRadius: '6px',
-                background: '#eff6ff',
-                border: '1px solid #bfdbfe',
+                padding: '10px 12px',
+                borderRadius: '8px',
+                background: result.includes('Failed') || result.includes('Error') ? '#fef2f2' : '#eff6ff',
+                border: `1px solid ${result.includes('Failed') || result.includes('Error') ? '#fecaca' : '#bfdbfe'}`,
                 fontSize: '0.75rem',
-                color: '#1e40af',
+                color: result.includes('Failed') || result.includes('Error') ? '#991b1b' : '#1e40af',
+                lineHeight: 1.5,
               }}
             >
-              {result}
+              <div>{result}</div>
+              {result.includes('permissions') && (
+                <div style={{ marginTop: '8px', paddingTop: '8px', borderTop: '1px solid #fee2e2', color: '#7f1d1d', fontSize: '0.72rem' }}>
+                  <strong>How to fix in 30 seconds:</strong>
+                  <ol style={{ paddingLeft: '16px', marginTop: '4px', marginBlockEnd: '4px' }}>
+                    <li>Open <a href="https://console.firebase.google.com/project/zynthax-orginal/firestore/rules" target="_blank" rel="noreferrer" style={{ color: '#2563eb', textDecoration: 'underline' }}>Firestore Rules</a> in console</li>
+                    <li>Change rules to allow write during setup</li>
+                    <li>Click Publish, then click &quot;Seed Collections&quot; again</li>
+                  </ol>
+                </div>
+              )}
             </div>
           )}
 

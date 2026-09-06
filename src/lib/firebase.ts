@@ -1,6 +1,7 @@
 import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
 import { getFirestore, Firestore } from 'firebase/firestore';
 
+// Firebase configuration loaded from environment variables
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -17,18 +18,15 @@ export const isFirebaseConfigured = Boolean(
   firebaseConfig.projectId !== 'your-project-id'
 );
 
-let app: FirebaseApp | undefined;
-let db: Firestore | undefined;
-
-if (typeof window !== 'undefined' || isFirebaseConfigured) {
-  try {
-    if (isFirebaseConfigured) {
-      app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
-      db = getFirestore(app);
-    }
-  } catch (error) {
-    console.warn('Firebase initialization error, fallback mode enabled:', error);
-  }
+// Central Firebase initialization (no Analytics)
+let app: FirebaseApp;
+if (getApps().length === 0) {
+  app = initializeApp(firebaseConfig);
+} else {
+  app = getApp();
 }
+
+// Export Firestore database instance for use across the site
+const db: Firestore = getFirestore(app);
 
 export { app, db };

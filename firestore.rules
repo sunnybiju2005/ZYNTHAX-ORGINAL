@@ -1,0 +1,41 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Work Categories: Public read, admin write
+    match /workCategories/{categoryId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Portfolio Items: Public read, admin write
+    match /portfolioItems/{itemId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Team Members: Public read, admin write
+    match /teamMembers/{memberId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Site Content (hero, about, testimonials): Public read, admin write
+    match /siteContent/{contentId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Client Messages: Public write-only (anyone can submit an inquiry), admin can read/manage
+    match /clientMessages/{messageId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+    
+    // Default fallback: Deny all other unmatched paths
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

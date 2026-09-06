@@ -32,15 +32,24 @@ function PortfolioContent() {
     <div style={{ padding: '60px 0 90px' }}>
       <div className="container">
         {/* Page Header */}
-        <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 48px' }}>
-          <div className="badge">
-            <span>Our Work & Case Studies</span>
+        <div style={{ maxWidth: '750px', margin: '0 auto 44px', textAlign: 'center' }}>
+          <div
+            style={{
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              color: '#64748b',
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              marginBottom: '10px',
+            }}
+          >
+            Portfolio
           </div>
-          <h1 style={{ fontSize: 'clamp(2.3rem, 4vw, 3.5rem)', color: '#0f172a', marginBottom: '14px' }}>
-            Proven Results & <span className="text-gradient">Deliverables</span>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', color: '#0f172a', marginBottom: '14px', fontWeight: 800 }}>
+            Selected Deliverables
           </h1>
-          <p style={{ color: '#475569', fontSize: '1.1rem', lineHeight: 1.6 }}>
-            Browse our completed projects across web applications, retail billing software, branding, and video post-production.
+          <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: 1.6 }}>
+            Browse projects across web applications, retail billing software, branding, and video post-production.
           </p>
         </div>
 
@@ -50,29 +59,29 @@ function PortfolioContent() {
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            gap: '8px',
-            marginBottom: '40px',
+            gap: '6px',
+            marginBottom: '36px',
           }}
         >
           <button
             onClick={() => setSelectedCategory('all')}
             style={{
-              padding: '8px 18px',
-              borderRadius: '6px',
+              padding: '7px 16px',
+              borderRadius: '4px',
               border: selectedCategory === 'all'
-                ? '1px solid #2563eb'
+                ? '1px solid #0f172a'
                 : '1px solid #e2e8f0',
               background: selectedCategory === 'all'
-                ? '#eff6ff'
+                ? '#0f172a'
                 : '#ffffff',
-              color: selectedCategory === 'all' ? '#1d4ed8' : '#475569',
-              fontSize: '0.875rem',
+              color: selectedCategory === 'all' ? '#ffffff' : '#475569',
+              fontSize: '0.85rem',
               fontWeight: 600,
               cursor: 'pointer',
               transition: 'all 0.15s ease',
             }}
           >
-            All Projects ({items.length})
+            All Work ({items.length})
           </button>
 
           {categories.map((cat) => {
@@ -82,16 +91,16 @@ function PortfolioContent() {
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
                 style={{
-                  padding: '8px 18px',
-                  borderRadius: '6px',
+                  padding: '7px 16px',
+                  borderRadius: '4px',
                   border: isSelected
-                    ? '1px solid #2563eb'
+                    ? '1px solid #0f172a'
                     : '1px solid #e2e8f0',
                   background: isSelected
-                    ? '#eff6ff'
+                    ? '#0f172a'
                     : '#ffffff',
-                  color: isSelected ? '#1d4ed8' : '#475569',
-                  fontSize: '0.875rem',
+                  color: isSelected ? '#ffffff' : '#475569',
+                  fontSize: '0.85rem',
                   fontWeight: 600,
                   cursor: 'pointer',
                   transition: 'all 0.15s ease',
@@ -110,21 +119,22 @@ function PortfolioContent() {
           </div>
         ) : items.length === 0 ? (
           <div
-            className="card-panel"
             style={{
-              padding: '48px',
+              padding: '44px',
               textAlign: 'center',
-              maxWidth: '480px',
+              maxWidth: '460px',
               margin: '0 auto',
               background: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '4px',
             }}
           >
-            <AlertCircle size={36} color="#2563eb" style={{ marginBottom: '14px' }} />
-            <h3 style={{ fontSize: '1.2rem', color: '#0f172a', marginBottom: '6px' }}>
-              No Projects Found in this Category
+            <AlertCircle size={32} color="#2563eb" style={{ marginBottom: '12px' }} />
+            <h3 style={{ fontSize: '1.15rem', color: '#0f172a', marginBottom: '6px' }}>
+              No Projects in this Category
             </h3>
-            <p style={{ color: '#64748b', fontSize: '0.9rem' }}>
-              Select another category above or check back shortly as new work is added.
+            <p style={{ color: '#64748b', fontSize: '0.875rem' }}>
+              Select another category above or check back shortly.
             </p>
           </div>
         ) : (

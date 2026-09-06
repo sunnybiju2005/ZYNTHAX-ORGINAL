@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
   { name: 'Home', href: '/' },
@@ -40,12 +40,12 @@ export default function Navbar() {
         alignItems: 'center',
         transition: 'all 0.2s ease',
         background: isScrolled
-          ? 'rgba(255, 255, 255, 0.95)'
-          : 'rgba(255, 255, 255, 0.85)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
+          ? 'rgba(255, 255, 255, 0.96)'
+          : 'rgba(255, 255, 255, 0.88)',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
         borderBottom: '1px solid var(--border-subtle)',
-        boxShadow: isScrolled ? 'var(--shadow-sm)' : 'none',
+        boxShadow: isScrolled ? '0 1px 3px rgba(0,0,0,0.05)' : 'none',
       }}
     >
       <div
@@ -56,79 +56,38 @@ export default function Navbar() {
           justifyContent: 'space-between',
         }}
       >
-        {/* Brand Logo */}
+        {/* Distinct Wordmark Logo (No generic icon square) */}
         <Link
           href="/"
           style={{
             display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
+            flexDirection: 'column',
             textDecoration: 'none',
           }}
         >
           <div
             style={{
-              width: '38px',
-              height: '38px',
-              borderRadius: '8px',
-              background: '#2563eb',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 2px 4px rgba(37, 99, 235, 0.2)',
+              fontFamily: 'var(--font-display)',
+              fontWeight: 800,
+              fontSize: '1.35rem',
+              letterSpacing: '0.04em',
+              color: '#0f172a',
+              lineHeight: 1,
             }}
           >
-            <span
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontWeight: 800,
-                fontSize: '1.25rem',
-                color: '#ffffff',
-              }}
-            >
-              Z
-            </span>
+            ZYNTHAX
           </div>
-          <div>
-            <div
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontWeight: 800,
-                fontSize: '1.2rem',
-                letterSpacing: '-0.02em',
-                color: '#0f172a',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-              }}
-            >
-              ZYNTHAX
-              <span
-                style={{
-                  fontSize: '0.7rem',
-                  padding: '1px 6px',
-                  borderRadius: '4px',
-                  background: '#eff6ff',
-                  color: '#2563eb',
-                  border: '1px solid #bfdbfe',
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                }}
-              >
-                Digital
-              </span>
-            </div>
-            <div
-              style={{
-                fontSize: '0.675rem',
-                color: 'var(--text-muted)',
-                letterSpacing: '0.04em',
-                textTransform: 'uppercase',
-                marginTop: '-2px',
-              }}
-            >
-              Digital Solutions
-            </div>
+          <div
+            style={{
+              fontSize: '0.625rem',
+              color: '#64748b',
+              letterSpacing: '0.14em',
+              textTransform: 'uppercase',
+              fontWeight: 600,
+              marginTop: '3px',
+            }}
+          >
+            Digital Solutions
           </div>
         </Link>
 
@@ -137,7 +96,7 @@ export default function Navbar() {
           style={{
             display: 'none',
             alignItems: 'center',
-            gap: '4px',
+            gap: '6px',
           }}
           className="desktop-nav"
         >
@@ -148,14 +107,14 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 style={{
-                  padding: '8px 16px',
-                  borderRadius: '6px',
+                  padding: '6px 14px',
+                  borderRadius: '4px',
                   textDecoration: 'none',
-                  fontSize: '0.925rem',
+                  fontSize: '0.9rem',
                   fontWeight: isActive ? 600 : 500,
-                  color: isActive ? '#2563eb' : '#475569',
-                  background: isActive ? '#eff6ff' : 'transparent',
-                  transition: 'all 0.15s ease',
+                  color: isActive ? '#0f172a' : '#64748b',
+                  background: isActive ? '#f1f5f9' : 'transparent',
+                  transition: 'color 0.15s ease, background 0.15s ease',
                 }}
               >
                 {link.name}
@@ -164,12 +123,12 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Action Button */}
+        {/* Action Button (No generic arrow icon) */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '14px',
+            gap: '12px',
           }}
         >
           <Link
@@ -178,8 +137,7 @@ export default function Navbar() {
             style={{ display: 'none' }}
             id="nav-cta-btn"
           >
-            <span>Start a Project</span>
-            <ArrowRight size={14} />
+            Start a Project
           </Link>
 
           {/* Mobile Menu Trigger */}
@@ -191,8 +149,8 @@ export default function Navbar() {
               justifyContent: 'center',
               background: '#ffffff',
               border: '1px solid var(--border-subtle)',
-              borderRadius: '8px',
-              padding: '8px',
+              borderRadius: '4px',
+              padding: '7px',
               color: '#334155',
               cursor: 'pointer',
             }}
@@ -217,8 +175,8 @@ export default function Navbar() {
             padding: '20px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '8px',
-            boxShadow: 'var(--shadow-lg)',
+            gap: '6px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
           }}
         >
           {NAV_LINKS.map((link) => {
@@ -229,13 +187,13 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
-                  padding: '10px 14px',
-                  borderRadius: '6px',
+                  padding: '10px 12px',
+                  borderRadius: '4px',
                   textDecoration: 'none',
-                  fontSize: '1rem',
+                  fontSize: '0.95rem',
                   fontWeight: isActive ? 600 : 500,
-                  color: isActive ? '#2563eb' : '#334155',
-                  background: isActive ? '#eff6ff' : 'transparent',
+                  color: isActive ? '#0f172a' : '#475569',
+                  background: isActive ? '#f1f5f9' : 'transparent',
                 }}
               >
                 {link.name}
@@ -249,8 +207,7 @@ export default function Navbar() {
             className="btn-primary"
             style={{ marginTop: '10px', width: '100%' }}
           >
-            <span>Start a Project</span>
-            <ArrowRight size={16} />
+            Start a Project
           </Link>
         </div>
       )}

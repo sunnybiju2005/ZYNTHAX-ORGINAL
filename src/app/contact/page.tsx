@@ -37,168 +37,190 @@ function ContactContent() {
     <div style={{ padding: '60px 0 90px' }}>
       <div className="container">
         {/* Page Header */}
-        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 50px' }}>
-          <div className="badge">
-            <span>Contact Us</span>
+        <div style={{ maxWidth: '720px', margin: '0 auto 48px', textAlign: 'center' }}>
+          <div
+            style={{
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              color: '#64748b',
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              marginBottom: '10px',
+            }}
+          >
+            Contact Desk
           </div>
-          <h1 style={{ fontSize: 'clamp(2.3rem, 4vw, 3.5rem)', color: '#0f172a', marginBottom: '14px' }}>
-            Let’s Discuss Your <span className="text-gradient">Project</span>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', color: '#0f172a', marginBottom: '14px', fontWeight: 800 }}>
+            Discuss Your Next Project
           </h1>
-          <p style={{ color: '#475569', fontSize: '1.1rem', lineHeight: 1.6 }}>
-            Reach out directly or send us a message below. We respond to all inquiries within 2 hours during business hours.
+          <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: 1.6 }}>
+            Direct lines to our engineering and design team. We respond to all project inquiries within 2 hours during business hours.
           </p>
         </div>
 
         {/* Top Direct Contact Cards */}
-        <div className="grid-3" style={{ marginBottom: '48px' }}>
-          {/* Email Direct */}
+        <div className="grid-3" style={{ marginBottom: '40px' }}>
+          {/* Email */}
           <a
             href="mailto:zynthax13@gmail.com"
-            className="card-panel"
             style={{
-              padding: '24px',
+              padding: '22px',
               textDecoration: 'none',
               display: 'flex',
               alignItems: 'flex-start',
-              gap: '14px',
+              gap: '12px',
               background: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '4px',
             }}
           >
             <div
               style={{
-                width: '42px',
-                height: '42px',
-                borderRadius: '8px',
+                width: '38px',
+                height: '38px',
+                borderRadius: '4px',
                 background: '#eff6ff',
-                border: '1px solid #bfdbfe',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
               }}
             >
-              <Mail size={20} color="#2563eb" />
+              <Mail size={18} color="#2563eb" />
             </div>
             <div>
-              <div style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
-                Email Inquiries
+              <div style={{ fontSize: '0.725rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
+                Email
               </div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', margin: '3px 0' }}>
+              <div style={{ fontSize: '1rem', fontWeight: 700, color: '#0f172a', margin: '2px 0' }}>
                 zynthax13@gmail.com
               </div>
-              <div style={{ fontSize: '0.8rem', color: '#2563eb', fontWeight: 500 }}>
-                Send direct email &rarr;
+              <div style={{ fontSize: '0.775rem', color: '#2563eb' }}>
+                Send direct email
               </div>
             </div>
           </a>
 
-          {/* Phone Direct */}
+          {/* Phone */}
           <a
             href="tel:+918848241519"
-            className="card-panel"
             style={{
-              padding: '24px',
+              padding: '22px',
               textDecoration: 'none',
               display: 'flex',
               alignItems: 'flex-start',
-              gap: '14px',
+              gap: '12px',
               background: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '4px',
             }}
           >
             <div
               style={{
-                width: '42px',
-                height: '42px',
-                borderRadius: '8px',
+                width: '38px',
+                height: '38px',
+                borderRadius: '4px',
                 background: '#eff6ff',
-                border: '1px solid #bfdbfe',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
               }}
             >
-              <Phone size={20} color="#2563eb" />
+              <Phone size={18} color="#2563eb" />
             </div>
             <div>
-              <div style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
+              <div style={{ fontSize: '0.725rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
                 Phone & WhatsApp
               </div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', margin: '3px 0' }}>
+              <div style={{ fontSize: '1rem', fontWeight: 700, color: '#0f172a', margin: '2px 0' }}>
                 +91 8848241519
               </div>
-              <div style={{ fontSize: '0.8rem', color: '#2563eb', fontWeight: 500 }}>
-                Call or message &rarr;
+              <div style={{ fontSize: '0.775rem', color: '#2563eb' }}>
+                Call or message
               </div>
             </div>
           </a>
 
-          {/* SLA Card */}
+          {/* Response SLA */}
           <div
-            className="card-panel"
             style={{
-              padding: '24px',
+              padding: '22px',
               display: 'flex',
               alignItems: 'flex-start',
-              gap: '14px',
+              gap: '12px',
               background: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderRadius: '4px',
             }}
           >
             <div
               style={{
-                width: '42px',
-                height: '42px',
-                borderRadius: '8px',
+                width: '38px',
+                height: '38px',
+                borderRadius: '4px',
                 background: '#ecfdf5',
-                border: '1px solid #a7f3d0',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0,
               }}
             >
-              <Clock size={20} color="#10b981" />
+              <Clock size={18} color="#10b981" />
             </div>
             <div>
-              <div style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
-                Response Time
+              <div style={{ fontSize: '0.725rem', color: '#64748b', textTransform: 'uppercase', fontWeight: 600 }}>
+                Response Standard
               </div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a', margin: '3px 0' }}>
+              <div style={{ fontSize: '1rem', fontWeight: 700, color: '#0f172a', margin: '2px 0' }}>
                 Under 2 Hours
               </div>
-              <div style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 500 }}>
-                Mon &ndash; Sat: 9:00 AM &ndash; 8:00 PM IST
+              <div style={{ fontSize: '0.775rem', color: '#059669' }}>
+                Mon &ndash; Sat: 9am &ndash; 8pm IST
               </div>
             </div>
           </div>
         </div>
 
         {/* Contact Form */}
-        <div style={{ maxWidth: '800px', margin: '0 auto 80px' }}>
+        <div style={{ maxWidth: '780px', margin: '0 auto 64px' }}>
           <ContactForm defaultSubject={defaultSubject} />
         </div>
 
-        {/* FAQ Section */}
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '36px' }}>
-            <div className="badge">
-              <span>FAQ</span>
+        {/* FAQ */}
+        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
+          <div style={{ marginBottom: '28px' }}>
+            <div
+              style={{
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                color: '#64748b',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                marginBottom: '6px',
+              }}
+            >
+              FAQ
             </div>
-            <h2 style={{ fontSize: '2rem', color: '#0f172a' }}>
-              Frequently Asked Questions
+            <h2 style={{ fontSize: '1.8rem', color: '#0f172a', fontWeight: 800 }}>
+              Common Questions
             </h2>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="card-panel"
-                style={{ padding: '22px 26px', borderRadius: '12px', background: '#ffffff' }}
+                style={{
+                  padding: '20px 24px',
+                  borderRadius: '4px',
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
+                }}
               >
                 <h3
                   style={{
-                    fontSize: '1.05rem',
+                    fontSize: '1rem',
                     fontWeight: 700,
                     color: '#0f172a',
                     marginBottom: '8px',
@@ -207,10 +229,10 @@ function ContactContent() {
                     gap: '8px',
                   }}
                 >
-                  <HelpCircle size={17} color="#2563eb" />
+                  <HelpCircle size={16} color="#2563eb" />
                   <span>{faq.q}</span>
                 </h3>
-                <p style={{ color: '#475569', fontSize: '0.925rem', lineHeight: 1.65 }}>
+                <p style={{ color: '#475569', fontSize: '0.9rem', lineHeight: 1.6 }}>
                   {faq.a}
                 </p>
               </div>
@@ -224,7 +246,7 @@ function ContactContent() {
 
 export default function ContactPage() {
   return (
-    <Suspense fallback={<div style={{ textAlign: 'center', padding: '80px', color: '#64748b' }}>Loading contact desk...</div>}>
+    <Suspense fallback={<div style={{ textAlign: 'center', padding: '60px', color: '#64748b' }}>Loading contact desk...</div>}>
       <ContactContent />
     </Suspense>
   );

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -11,11 +11,11 @@ export default function Footer() {
         background: '#0f172a',
         color: '#f8fafc',
         borderTop: '1px solid #1e293b',
-        paddingTop: '70px',
-        paddingBottom: '36px',
+        paddingTop: '64px',
+        paddingBottom: '32px',
         position: 'relative',
         zIndex: 1,
-        marginTop: '80px',
+        marginTop: '60px',
       }}
     >
       <div className="container">
@@ -23,121 +23,74 @@ export default function Footer() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '48px',
-            marginBottom: '56px',
+            gap: '40px',
+            marginBottom: '48px',
           }}
         >
           {/* Brand Column */}
           <div>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '10px',
-                marginBottom: '16px',
-              }}
-            >
+            <div style={{ marginBottom: '14px' }}>
               <div
                 style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: '6px',
-                  background: '#2563eb',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  fontFamily: 'var(--font-display)',
                   fontWeight: 800,
+                  fontSize: '1.3rem',
+                  letterSpacing: '0.04em',
                   color: '#ffffff',
-                  fontSize: '1.2rem',
+                  lineHeight: 1,
                 }}
               >
-                Z
+                ZYNTHAX
               </div>
-              <div>
-                <span
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontWeight: 800,
-                    fontSize: '1.2rem',
-                    color: '#ffffff',
-                    letterSpacing: '-0.02em',
-                  }}
-                >
-                  ZYNTHAX
-                </span>
-                <span
-                  style={{
-                    display: 'block',
-                    fontSize: '0.65rem',
-                    color: '#93c5fd',
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  Digital Solutions
-                </span>
+              <div
+                style={{
+                  fontSize: '0.625rem',
+                  color: '#94a3b8',
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                  fontWeight: 600,
+                  marginTop: '3px',
+                }}
+              >
+                Digital Solutions
               </div>
             </div>
 
             <p
               style={{
                 color: '#94a3b8',
-                fontSize: '0.9rem',
+                fontSize: '0.875rem',
                 lineHeight: 1.6,
-                marginBottom: '20px',
+                marginBottom: '16px',
+                maxWidth: '320px',
               }}
             >
-              Professional digital partner for modern businesses. Specializing in high-performance websites, custom retail billing apps, brand identity, and media post-production.
+              Custom web platforms, offline-capable retail billing applications, brand identity systems, and multimedia post-production.
             </p>
-
-            <div
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '5px 12px',
-                borderRadius: '6px',
-                background: 'rgba(16, 185, 129, 0.15)',
-                border: '1px solid rgba(16, 185, 129, 0.3)',
-                fontSize: '0.775rem',
-                color: '#34d399',
-                fontWeight: 600,
-              }}
-            >
-              <span
-                style={{
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  background: '#34d399',
-                }}
-              />
-              Available for New Projects
-            </div>
           </div>
 
-          {/* Quick Navigation */}
+          {/* Navigation */}
           <div>
-            <h4
+            <div
               style={{
-                fontSize: '0.95rem',
+                fontSize: '0.8rem',
                 fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                letterSpacing: '0.02em',
+                color: '#e2e8f0',
+                marginBottom: '14px',
+                letterSpacing: '0.08em',
                 textTransform: 'uppercase',
               }}
             >
-              Company
-            </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              Navigation
+            </div>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {[
                 { label: 'Home', href: '/' },
                 { label: 'About Us', href: '/about' },
-                { label: 'Our Services', href: '/services' },
+                { label: 'Services', href: '/services' },
                 { label: 'Our Work', href: '/portfolio' },
-                { label: 'Meet the Team', href: '/team' },
-                { label: 'Contact Us', href: '/contact' },
+                { label: 'Our Team', href: '/team' },
+                { label: 'Contact', href: '/contact' },
               ].map((item) => (
                 <li key={item.label}>
                   <Link
@@ -145,47 +98,43 @@ export default function Footer() {
                     style={{
                       color: '#94a3b8',
                       textDecoration: 'none',
-                      fontSize: '0.9rem',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '4px',
+                      fontSize: '0.875rem',
                       transition: 'color 0.15s ease',
                     }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#ffffff')}
                     onMouseLeave={(e) => (e.currentTarget.style.color = '#94a3b8')}
                   >
-                    <span>{item.label}</span>
-                    <ArrowUpRight size={12} opacity={0.6} />
+                    {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Core Services */}
+          {/* Services */}
           <div>
-            <h4
+            <div
               style={{
-                fontSize: '0.95rem',
+                fontSize: '0.8rem',
                 fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                letterSpacing: '0.02em',
+                color: '#e2e8f0',
+                marginBottom: '14px',
+                letterSpacing: '0.08em',
                 textTransform: 'uppercase',
               }}
             >
               Services
-            </h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            </div>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
               {[
-                'Search Engine Optimization (SEO)',
-                'Website & Web Development',
-                'UI/UX Design & Prototyping',
-                'Retail Billing & Desktop Apps',
-                'Logo Design & Brand Guidelines',
+                'Web & System Development',
+                'Retail Billing & POS Apps',
+                'UI/UX Architecture',
+                'SEO & Search Visibility',
+                'Brand & Logo Systems',
                 'Logo Animation & Motion',
-                'Video Editing & Reels',
-                'Photoshop & Commercial Graphics',
+                'Video Post-Production',
+                'Commercial Graphic Retouching',
               ].map((service) => (
                 <li key={service}>
                   <Link
@@ -208,48 +157,32 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div>
-            <h4
+            <div
               style={{
-                fontSize: '0.95rem',
+                fontSize: '0.8rem',
                 fontWeight: 700,
-                color: '#ffffff',
-                marginBottom: '16px',
-                letterSpacing: '0.02em',
+                color: '#e2e8f0',
+                marginBottom: '14px',
+                letterSpacing: '0.08em',
                 textTransform: 'uppercase',
               }}
             >
-              Contact
-            </h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              Direct Contacts
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               <a
                 href="mailto:zynthax13@gmail.com"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '12px',
+                  gap: '10px',
                   color: '#cbd5e1',
                   textDecoration: 'none',
-                  fontSize: '0.9rem',
+                  fontSize: '0.875rem',
                 }}
               >
-                <div
-                  style={{
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: '6px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#93c5fd',
-                  }}
-                >
-                  <Mail size={16} />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>Email Support</div>
-                  <div style={{ fontWeight: 600 }}>zynthax13@gmail.com</div>
-                </div>
+                <Mail size={15} color="#94a3b8" />
+                <span>zynthax13@gmail.com</span>
               </a>
 
               <a
@@ -257,59 +190,27 @@ export default function Footer() {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '12px',
+                  gap: '10px',
                   color: '#cbd5e1',
                   textDecoration: 'none',
-                  fontSize: '0.9rem',
+                  fontSize: '0.875rem',
                 }}
               >
-                <div
-                  style={{
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: '6px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#93c5fd',
-                  }}
-                >
-                  <Phone size={16} />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>Phone & WhatsApp</div>
-                  <div style={{ fontWeight: 600 }}>+91 8848241519</div>
-                </div>
+                <Phone size={15} color="#94a3b8" />
+                <span>+91 8848241519</span>
               </a>
 
               <div
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '12px',
-                  color: '#cbd5e1',
-                  fontSize: '0.9rem',
+                  gap: '10px',
+                  color: '#94a3b8',
+                  fontSize: '0.875rem',
                 }}
               >
-                <div
-                  style={{
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: '6px',
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    color: '#93c5fd',
-                  }}
-                >
-                  <MapPin size={16} />
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>Location</div>
-                  <div style={{ fontWeight: 600 }}>Kerala, India (Global Remote)</div>
-                </div>
+                <MapPin size={15} color="#94a3b8" />
+                <span>Kerala, India (Global Remote)</span>
               </div>
             </div>
           </div>
@@ -319,13 +220,13 @@ export default function Footer() {
         <div
           style={{
             borderTop: '1px solid #1e293b',
-            paddingTop: '24px',
+            paddingTop: '20px',
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
             alignItems: 'center',
             gap: '12px',
-            fontSize: '0.825rem',
+            fontSize: '0.8rem',
             color: '#64748b',
           }}
         >
@@ -333,9 +234,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Zynthax Digital Solutions. All rights reserved.
           </div>
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-            <span>Powered by Firebase Firestore & Cloudinary</span>
-            <span>&bull;</span>
-            <span style={{ color: '#60a5fa' }}>Real-time Enabled</span>
+            <span>Firebase Firestore & Cloudinary Connected</span>
           </div>
         </div>
       </div>

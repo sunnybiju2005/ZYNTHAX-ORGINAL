@@ -6,12 +6,10 @@ import { useSiteContent } from '@/lib/firestoreHooks';
 import {
   Target,
   Compass,
-  CheckCircle2,
   Cpu,
   Zap,
   ShieldCheck,
   Award,
-  ArrowRight,
 } from 'lucide-react';
 
 export default function AboutPage() {
@@ -21,22 +19,22 @@ export default function AboutPage() {
     {
       title: 'Engineering Quality',
       desc: 'We write robust, modular, and maintainable software utilizing dependable frameworks like Next.js, Firebase, and Cloudinary.',
-      icon: <Cpu size={22} color="#2563eb" />,
+      icon: <Cpu size={20} color="#2563eb" />,
     },
     {
       title: 'High Performance & Speed',
       desc: 'From sub-second page loads to prompt client communications, we prioritize efficiency and zero unnecessary friction.',
-      icon: <Zap size={22} color="#2563eb" />,
+      icon: <Zap size={20} color="#2563eb" />,
     },
     {
       title: 'Practical Business Focus',
       desc: 'We solve real operational challenges — like high-speed retail checkout, inventory management, and search engine lead generation.',
-      icon: <Target size={22} color="#2563eb" />,
+      icon: <Target size={20} color="#2563eb" />,
     },
     {
-      title: 'Clear & Honest Communication',
+      title: 'Clear Communication',
       desc: 'Transparent timelines, predictable pricing, and dedicated post-launch support for peace of mind.',
-      icon: <ShieldCheck size={22} color="#2563eb" />,
+      icon: <ShieldCheck size={20} color="#2563eb" />,
     },
   ];
 
@@ -44,36 +42,45 @@ export default function AboutPage() {
     <div style={{ padding: '60px 0 90px' }}>
       <div className="container">
         {/* Header */}
-        <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 60px' }}>
-          <div className="badge">
-            <span>About Our Company</span>
+        <div style={{ maxWidth: '750px', margin: '0 auto 56px', textAlign: 'center' }}>
+          <div
+            style={{
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              color: '#64748b',
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              marginBottom: '10px',
+            }}
+          >
+            About Zynthax
           </div>
-          <h1 style={{ fontSize: 'clamp(2.3rem, 4vw, 3.5rem)', color: '#0f172a', marginBottom: '16px' }}>
-            Empowering Modern Businesses with <span className="text-gradient">Dependable Technology</span>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', color: '#0f172a', marginBottom: '16px', fontWeight: 800 }}>
+            Dependable software and digital services for growing businesses.
           </h1>
-          <p style={{ color: '#475569', fontSize: '1.1rem', lineHeight: 1.65 }}>
-            Zynthax Digital Solutions is an agile digital services agency built to deliver reliable websites, practical business applications, and distinctive visual branding.
+          <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: 1.65 }}>
+            Zynthax Digital Solutions is an agile digital services agency built to deliver reliable websites, practical retail applications, and brand media.
           </p>
         </div>
 
         {/* Company Story */}
         <div
-          className="card-panel"
           style={{
-            padding: 'clamp(30px, 4vw, 48px)',
-            borderRadius: '16px',
-            marginBottom: '48px',
+            padding: 'clamp(28px, 4vw, 44px)',
+            borderRadius: '4px',
+            marginBottom: '40px',
             background: '#ffffff',
+            border: '1px solid #e2e8f0',
           }}
         >
           <div style={{ maxWidth: '820px' }}>
-            <h2 style={{ fontSize: '1.8rem', color: '#0f172a', marginBottom: '16px' }}>
-              Our Story & Background
+            <h2 style={{ fontSize: '1.6rem', color: '#0f172a', marginBottom: '14px', fontWeight: 800 }}>
+              Background & Founding Purpose
             </h2>
             <p
               style={{
                 color: '#334155',
-                fontSize: '1rem',
+                fontSize: '0.975rem',
                 lineHeight: 1.75,
                 marginBottom: '16px',
               }}
@@ -83,7 +90,7 @@ export default function AboutPage() {
             <p
               style={{
                 color: '#334155',
-                fontSize: '1rem',
+                fontSize: '0.975rem',
                 lineHeight: 1.75,
               }}
             >
@@ -92,66 +99,38 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Mission & Vision Grid */}
-        <div className="grid-2" style={{ marginBottom: '48px' }}>
-          {/* Mission */}
+        {/* Mission & Vision */}
+        <div className="grid-2" style={{ marginBottom: '40px' }}>
           <div
-            className="card-panel"
             style={{
-              padding: '36px',
-              borderRadius: '14px',
+              padding: '32px',
+              borderRadius: '4px',
               background: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderLeft: '3px solid #2563eb',
             }}
           >
-            <div
-              style={{
-                width: '44px',
-                height: '44px',
-                borderRadius: '8px',
-                background: '#eff6ff',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '18px',
-              }}
-            >
-              <Target size={22} color="#2563eb" />
-            </div>
-            <h3 style={{ fontSize: '1.4rem', color: '#0f172a', marginBottom: '10px' }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#0f172a', marginBottom: '10px', fontWeight: 700 }}>
               Our Mission
             </h3>
-            <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: '#475569', fontSize: '0.925rem', lineHeight: 1.65 }}>
               {content.aboutMission}
             </p>
           </div>
 
-          {/* Vision */}
           <div
-            className="card-panel"
             style={{
-              padding: '36px',
-              borderRadius: '14px',
+              padding: '32px',
+              borderRadius: '4px',
               background: '#ffffff',
+              border: '1px solid #e2e8f0',
+              borderLeft: '3px solid #0f172a',
             }}
           >
-            <div
-              style={{
-                width: '44px',
-                height: '44px',
-                borderRadius: '8px',
-                background: '#eff6ff',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '18px',
-              }}
-            >
-              <Compass size={22} color="#2563eb" />
-            </div>
-            <h3 style={{ fontSize: '1.4rem', color: '#0f172a', marginBottom: '10px' }}>
+            <h3 style={{ fontSize: '1.25rem', color: '#0f172a', marginBottom: '10px', fontWeight: 700 }}>
               Our Vision
             </h3>
-            <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: '#475569', fontSize: '0.925rem', lineHeight: 1.65 }}>
               {content.aboutVision}
             </p>
           </div>
@@ -159,87 +138,95 @@ export default function AboutPage() {
 
         {/* Founder Note */}
         <div
-          className="card-panel"
           style={{
-            padding: 'clamp(32px, 4vw, 48px)',
-            borderRadius: '16px',
-            marginBottom: '64px',
+            padding: 'clamp(28px, 4vw, 40px)',
+            borderRadius: '4px',
+            marginBottom: '56px',
             background: '#f8fafc',
-            border: '1px solid #cbd5e1',
+            border: '1px solid #e2e8f0',
           }}
         >
           <div
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '16px',
+              gap: '12px',
               maxWidth: '800px',
             }}
           >
             <div
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                color: '#2563eb',
+                fontSize: '0.75rem',
+                color: '#64748b',
                 fontWeight: 700,
-                fontSize: '0.8rem',
                 textTransform: 'uppercase',
-                letterSpacing: '0.04em',
+                letterSpacing: '0.06em',
               }}
             >
-              <Award size={16} />
-              <span>Founder & Leadership Note</span>
+              Founder Note
             </div>
 
             <blockquote
               style={{
-                fontSize: 'clamp(1.1rem, 2vw, 1.35rem)',
+                fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
                 lineHeight: 1.6,
                 color: '#0f172a',
                 fontStyle: 'italic',
-                borderLeft: '4px solid #2563eb',
-                paddingLeft: '20px',
+                borderLeft: '3px solid #2563eb',
+                paddingLeft: '18px',
               }}
             >
               {content.founderMessage}
             </blockquote>
 
-            <div style={{ marginTop: '8px' }}>
-              <div style={{ fontWeight: 700, fontSize: '1.05rem', color: '#0f172a' }}>Sunny Biju</div>
-              <div style={{ fontSize: '0.825rem', color: '#64748b' }}>
+            <div style={{ marginTop: '6px' }}>
+              <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#0f172a' }}>Sunny Biju</div>
+              <div style={{ fontSize: '0.8rem', color: '#64748b' }}>
                 Founder & Head of Innovation &bull; Zynthax Digital Solutions
               </div>
             </div>
           </div>
         </div>
 
-        {/* Core Principles */}
+        {/* Principles */}
         <div>
-          <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 40px' }}>
-            <div className="badge">
-              <span>Why Partner With Us</span>
+          <div style={{ marginBottom: '32px' }}>
+            <div
+              style={{
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                color: '#2563eb',
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                marginBottom: '6px',
+              }}
+            >
+              Core Standards
             </div>
-            <h2 style={{ fontSize: '2.2rem', color: '#0f172a', marginBottom: '10px' }}>
-              Built for Real Business Needs
+            <h2 style={{ fontSize: '1.8rem', color: '#0f172a', fontWeight: 800 }}>
+              How We Work
             </h2>
-            <p style={{ color: '#64748b', fontSize: '1rem' }}>
-              We combine pragmatic software development with professional customer service.
-            </p>
           </div>
 
           <div className="grid-4">
             {values.map((v, idx) => (
               <div
                 key={idx}
-                className="card-panel"
-                style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '12px', background: '#ffffff' }}
+                style={{
+                  padding: '22px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '10px',
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '4px',
+                }}
               >
                 <div
                   style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '8px',
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '4px',
                     background: '#eff6ff',
                     display: 'flex',
                     alignItems: 'center',
@@ -248,18 +235,17 @@ export default function AboutPage() {
                 >
                   {v.icon}
                 </div>
-                <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0f172a' }}>{v.title}</h3>
-                <p style={{ color: '#475569', fontSize: '0.875rem', lineHeight: 1.6 }}>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0f172a' }}>{v.title}</h3>
+                <p style={{ color: '#475569', fontSize: '0.85rem', lineHeight: 1.55 }}>
                   {v.desc}
                 </p>
               </div>
             ))}
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '40px' }}>
+          <div style={{ marginTop: '36px' }}>
             <Link href="/contact" className="btn-primary">
-              <span>Talk to Our Team</span>
-              <ArrowRight size={16} />
+              Contact Our Team
             </Link>
           </div>
         </div>

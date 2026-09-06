@@ -14,21 +14,19 @@ import {
   Film,
   Smartphone,
   CheckCircle2,
-  ArrowRight,
-  Send,
   X,
   Layers,
 } from 'lucide-react';
 
 const ICON_MAP: Record<string, React.ReactNode> = {
-  Search: <Search size={24} color="#2563eb" />,
-  Globe: <Globe size={24} color="#2563eb" />,
-  Layout: <Layout size={24} color="#2563eb" />,
-  Image: <ImageIcon size={24} color="#2563eb" />,
-  Sparkles: <Sparkles size={24} color="#2563eb" />,
-  PlayCircle: <PlayCircle size={24} color="#2563eb" />,
-  Film: <Film size={24} color="#2563eb" />,
-  Smartphone: <Smartphone size={24} color="#2563eb" />,
+  Search: <Search size={22} color="#2563eb" />,
+  Globe: <Globe size={22} color="#2563eb" />,
+  Layout: <Layout size={22} color="#2563eb" />,
+  Image: <ImageIcon size={22} color="#2563eb" />,
+  Sparkles: <Sparkles size={22} color="#2563eb" />,
+  PlayCircle: <PlayCircle size={22} color="#2563eb" />,
+  Film: <Film size={22} color="#2563eb" />,
+  Smartphone: <Smartphone size={22} color="#2563eb" />,
 };
 
 export default function ServicesPage() {
@@ -38,31 +36,40 @@ export default function ServicesPage() {
     <div style={{ padding: '60px 0 90px' }}>
       <div className="container">
         {/* Page Header */}
-        <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 60px' }}>
-          <div className="badge">
-            <span>Specialized Capabilities</span>
+        <div style={{ maxWidth: '750px', margin: '0 auto 56px', textAlign: 'center' }}>
+          <div
+            style={{
+              fontSize: '0.8rem',
+              fontWeight: 700,
+              color: '#64748b',
+              textTransform: 'uppercase',
+              letterSpacing: '0.08em',
+              marginBottom: '10px',
+            }}
+          >
+            Services Catalog
           </div>
-          <h1 style={{ fontSize: 'clamp(2.3rem, 4vw, 3.5rem)', color: '#0f172a', marginBottom: '16px' }}>
-            Comprehensive <span className="text-gradient">Digital Services</span>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.4rem)', color: '#0f172a', marginBottom: '16px', fontWeight: 800 }}>
+            Comprehensive Digital Services
           </h1>
-          <p style={{ color: '#475569', fontSize: '1.1rem', lineHeight: 1.65 }}>
-            Explore our specialized offerings across website development, retail billing software, branding design, and media production.
+          <p style={{ color: '#475569', fontSize: '1.05rem', lineHeight: 1.65 }}>
+            Detailed offerings across website development, retail billing applications, brand identity, and video post-production.
           </p>
         </div>
 
-        {/* Services List - Dedicated Section Per Service */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
+        {/* Services List */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '36px' }}>
           {servicesData.map((service, index) => {
             return (
               <section
                 key={service.id}
                 id={service.id}
-                className="card-panel"
                 style={{
-                  padding: 'clamp(28px, 4vw, 48px)',
-                  borderRadius: '16px',
+                  padding: 'clamp(24px, 3.5vw, 40px)',
                   background: '#ffffff',
-                  border: '1px solid var(--border-subtle)',
+                  border: '1px solid #e2e8f0',
+                  borderLeft: '4px solid #2563eb',
+                  borderRadius: '4px',
                   scrollMarginTop: '100px',
                 }}
               >
@@ -70,47 +77,46 @@ export default function ServicesPage() {
                   style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    gap: '36px',
+                    gap: '32px',
                     alignItems: 'center',
                   }}
                 >
-                  {/* Left Column */}
+                  {/* Left Info */}
                   <div>
                     <div
                       style={{
-                        display: 'inline-flex',
+                        display: 'flex',
                         alignItems: 'center',
                         gap: '12px',
-                        marginBottom: '16px',
+                        marginBottom: '14px',
                       }}
                     >
                       <div
                         style={{
-                          width: '46px',
-                          height: '46px',
-                          borderRadius: '8px',
+                          width: '40px',
+                          height: '40px',
+                          borderRadius: '4px',
                           background: '#eff6ff',
-                          border: '1px solid #bfdbfe',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
                         }}
                       >
-                        {ICON_MAP[service.iconName] || <Globe size={24} color="#2563eb" />}
+                        {ICON_MAP[service.iconName] || <Globe size={22} color="#2563eb" />}
                       </div>
                       <div>
-                        <span
+                        <div
                           style={{
                             fontSize: '0.725rem',
                             fontWeight: 700,
                             letterSpacing: '0.04em',
                             textTransform: 'uppercase',
-                            color: '#2563eb',
+                            color: '#64748b',
                           }}
                         >
-                          Service #{index + 1}
-                        </span>
-                        <h2 style={{ fontSize: '1.65rem', color: '#0f172a', lineHeight: 1.25 }}>
+                          Service {index + 1}
+                        </div>
+                        <h2 style={{ fontSize: '1.5rem', color: '#0f172a', lineHeight: 1.25, fontWeight: 800 }}>
                           {service.title}
                         </h2>
                       </div>
@@ -118,10 +124,10 @@ export default function ServicesPage() {
 
                     <p
                       style={{
-                        fontSize: '1rem',
+                        fontSize: '0.95rem',
                         fontWeight: 600,
                         color: '#1d4ed8',
-                        marginBottom: '14px',
+                        marginBottom: '12px',
                         lineHeight: 1.5,
                       }}
                     >
@@ -131,67 +137,65 @@ export default function ServicesPage() {
                     <p
                       style={{
                         color: '#475569',
-                        fontSize: '0.925rem',
+                        fontSize: '0.9rem',
                         lineHeight: 1.65,
-                        marginBottom: '24px',
+                        marginBottom: '22px',
                       }}
                     >
                       {service.description}
                     </p>
 
                     {/* Action Buttons */}
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                       <button
                         onClick={() => setActiveRequestService(service.title)}
                         className="btn-primary btn-sm"
                       >
-                        <span>Request This Service</span>
-                        <Send size={13} />
+                        Request This Service
                       </button>
 
                       <Link
                         href={`/portfolio?category=${service.categorySlug}`}
                         className="btn-secondary btn-sm"
                       >
-                        <span>View Sample Projects</span>
-                        <ArrowRight size={13} />
+                        View Samples
                       </Link>
                     </div>
                   </div>
 
-                  {/* Right Column: Capabilities & Deliverables */}
+                  {/* Right Capabilities Box */}
                   <div
                     style={{
                       background: '#f8fafc',
-                      borderRadius: '12px',
-                      padding: '28px',
+                      padding: '24px',
                       border: '1px solid #e2e8f0',
+                      borderRadius: '4px',
                     }}
                   >
-                    <h3
+                    <div
                       style={{
-                        fontSize: '0.925rem',
+                        fontSize: '0.8rem',
                         fontWeight: 700,
                         textTransform: 'uppercase',
-                        letterSpacing: '0.04em',
+                        letterSpacing: '0.06em',
                         color: '#0f172a',
-                        marginBottom: '16px',
+                        marginBottom: '14px',
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '8px',
+                        gap: '6px',
                       }}
                     >
-                      <Layers size={15} color="#2563eb" />
-                      <span>Key Capabilities</span>
-                    </h3>
+                      <Layers size={14} color="#2563eb" />
+                      <span>Capabilities Included</span>
+                    </div>
 
                     <ul
                       style={{
                         listStyle: 'none',
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: '10px',
-                        marginBottom: '24px',
+                        gap: '8px',
+                        marginBottom: '20px',
                       }}
                     >
                       {service.features.map((feature, fIdx) => (
@@ -200,14 +204,14 @@ export default function ServicesPage() {
                           style={{
                             display: 'flex',
                             alignItems: 'flex-start',
-                            gap: '10px',
-                            fontSize: '0.875rem',
+                            gap: '8px',
+                            fontSize: '0.85rem',
                             color: '#334155',
                             lineHeight: 1.5,
                           }}
                         >
                           <CheckCircle2
-                            size={16}
+                            size={15}
                             color="#2563eb"
                             style={{ marginTop: '2px', flexShrink: 0 }}
                           />
@@ -216,29 +220,28 @@ export default function ServicesPage() {
                       ))}
                     </ul>
 
-                    {/* Deliverables */}
                     <div>
                       <span
                         style={{
                           display: 'block',
-                          fontSize: '0.75rem',
+                          fontSize: '0.725rem',
                           textTransform: 'uppercase',
                           letterSpacing: '0.04em',
                           color: '#64748b',
-                          marginBottom: '8px',
+                          marginBottom: '6px',
                           fontWeight: 600,
                         }}
                       >
-                        Standard Deliverables
+                        Deliverables
                       </span>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                         {service.deliverables.map((del, dIdx) => (
                           <span
                             key={dIdx}
                             style={{
-                              fontSize: '0.775rem',
-                              padding: '3px 8px',
-                              borderRadius: '4px',
+                              fontSize: '0.75rem',
+                              padding: '2px 7px',
+                              borderRadius: '3px',
                               background: '#ffffff',
                               color: '#475569',
                               border: '1px solid #e2e8f0',
@@ -289,8 +292,8 @@ export default function ServicesPage() {
                 position: 'absolute',
                 top: '-12px',
                 right: '-12px',
-                width: '34px',
-                height: '34px',
+                width: '32px',
+                height: '32px',
                 borderRadius: '50%',
                 background: '#ffffff',
                 border: '1px solid #cbd5e1',
@@ -300,10 +303,10 @@ export default function ServicesPage() {
                 justifyContent: 'center',
                 cursor: 'pointer',
                 zIndex: 10,
-                boxShadow: 'var(--shadow-md)',
+                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
               }}
             >
-              <X size={16} />
+              <X size={15} />
             </button>
             <ContactForm defaultSubject={activeRequestService} />
           </div>
